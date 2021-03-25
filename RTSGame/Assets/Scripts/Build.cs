@@ -8,7 +8,8 @@ public class Build : MonoBehaviour
     // Start is called before the first frame update
     public SteamVR_Input_Sources handType; 
 
-    public SteamVR_Action_Boolean ShowCanvas; 
+    public SteamVR_Action_Boolean ShowCanvas;
+    public SteamVR_Action_Boolean PreviewAction;
     public GameObject collidingObject = null; 
 
     public bool HasToShow = false;
@@ -25,9 +26,9 @@ public class Build : MonoBehaviour
         {
             if (GetBuild()==true)
                 ViewCanvas();
-        
+
            
-           // Building();
+            //Building();
         }
         
     }
@@ -36,6 +37,10 @@ public class Build : MonoBehaviour
     public bool GetBuild()
     {
         return ShowCanvas.GetStateDown(handType);
+    }
+    public bool GetPreview()
+    {
+        return PreviewAction.GetStateDown(handType);
     }
     // MUESTRA CANVAS
     public bool ViewCanvas()
@@ -78,13 +83,21 @@ public class Build : MonoBehaviour
        
         if (collidingObject.tag=="Building" &&HasToBuild == true)
         {
-            Debug.Log(collidingObject.name);
-            //GameObject build = Instantiate(collidingObject, new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity);  
+            Debug.Log("ADIOS");
+            if(GetPreview()==true)
+            {
+                GameObject build = Instantiate(collidingObject, new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity);
+                build.transform.localScale = new Vector3(1, 1, 1);
+                Debug.Log("HOOLAAAAAAAAAAAAAAAAA");
+                HasToBuild = false;
+                collidingObject = null;
+            }
+            //Debug.Log(collidingObject.name);
+           
            // Vector3 pos = new Vector3(this.transform.position.x, GameObject.Find("TB_Env_Tile_Grass_A").transform.position.y, this.transform.position.z);
           //  collidingObject.transform.position = pos;
-            //build.transform.localScale = new Vector3(1, 1, 1);
-            HasToBuild = false;
-            collidingObject = null;
+           
+           
         }
       
     }
@@ -100,14 +113,20 @@ public class Build : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-       
+        if (other.gameObject.tag == "Building")
+        {
+            HasToBuild = true;
+            CheckBuilding(other);
+
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Building")
         {
-            CheckBuilding(other);
-            HasToBuild = true;
+            HasToBuild = false;
+           // CheckBuilding(other);
+           
         }
     }
 }
