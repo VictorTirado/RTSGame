@@ -13,11 +13,14 @@ public class Character_Manager : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject pos;
 
+    public Animator m_Animator;
+
     // Start is called before the first frame update
     void Start()
     {
         SetGender();
         work_type = Character.None;
+        m_Animator = transform.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,12 +36,14 @@ public class Character_Manager : MonoBehaviour
         if(work_type == Character.None && gender == Gender.Male)
         {
             this.transform.GetChild(8).gameObject.SetActive(true);
+           
         }
 
         //FEMALE
         if (work_type == Character.None && gender == Gender.Female)
         {
             this.transform.GetChild(3).gameObject.SetActive(true);
+           // m_Animator.SetBool("isWalking", false);
         }
     }
 
@@ -56,6 +61,8 @@ public class Character_Manager : MonoBehaviour
             Debug.Log(rand);
             this.gender = Gender.Female;
         }
-       
+
+        m_Animator.SetBool("isWalking", false);
+
     }
 }
