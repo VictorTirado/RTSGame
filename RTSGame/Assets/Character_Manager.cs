@@ -21,12 +21,13 @@ public class Character_Manager : MonoBehaviour
         SetGender();
         work_type = Character.None;
         m_Animator = transform.GetComponent<Animator>();
+        SetWork();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetWork();
+       
     }
 
 
