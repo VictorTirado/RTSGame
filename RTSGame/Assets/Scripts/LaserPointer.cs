@@ -124,8 +124,9 @@ public class LaserPointer : MonoBehaviour
     {
        
         PlayerIsInAir = true;
+       
         Vector3 pos = new Vector3(this.transform.position.x, 10.0f, this.transform.position.z);
-        GameObject.Find("VRController").transform.position = pos;
+        GameObject.Find("VRController").transform.position = new Vector3(GameObject.Find("VRController").transform.position.x,10.0f, GameObject.Find("VRController").transform.position.z);
         GameObject.Find("VRController").GetComponent<VRController>().PlayerIsInFloor = false;
     }
 
