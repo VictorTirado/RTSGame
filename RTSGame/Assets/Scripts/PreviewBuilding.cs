@@ -3,48 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-
-public class ControllerGrabObject : MonoBehaviour
+public class PreviewBuilding : MonoBehaviour
 {
-    // Start is called before the first frame update
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
     private GameObject collidingObject; // 1
     public GameObject objectInHand; // 2
 
-    private void SetCollidingObject(Collider col)
-    {
-        // 1
-        if (collidingObject || !col.GetComponent<Rigidbody>())
-        {
-            return;
-        }
-        // 2
-        collidingObject = col.gameObject;
-    }
-    // 1
-    public void OnTriggerEnter(Collider other)
-    {
-        SetCollidingObject(other);
-    }
+    
 
-    // 2
-    public void OnTriggerStay(Collider other)
-    {
-        SetCollidingObject(other);
-    }
+    // Update is called once per frame
+ 
 
-    // 3
-    public void OnTriggerExit(Collider other)
-    {
-        if (!collidingObject)
-        {
-            return;
-        }
 
-        collidingObject = null;
-    }
     public void GrabObject()
     {
         // 1
@@ -55,7 +27,6 @@ public class ControllerGrabObject : MonoBehaviour
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }
 
-    // 3
     private FixedJoint AddFixedJoint()
     {
         FixedJoint fx = gameObject.AddComponent<FixedJoint>();
@@ -63,6 +34,8 @@ public class ControllerGrabObject : MonoBehaviour
         fx.breakTorque = 20000;
         return fx;
     }
+
+
     private void ReleaseObject()
     {
         // 1
@@ -80,7 +53,7 @@ public class ControllerGrabObject : MonoBehaviour
         objectInHand = null;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // 1
@@ -101,7 +74,25 @@ public class ControllerGrabObject : MonoBehaviour
             }
         }
 
+        if (objectInHand != null)
+            ShowPreview();
+
+
+
     }
+
+
+    public void ShowPreview()
+    {
+        objectInHand.transform.GetChild(2).gameObject.transform.position.Set(objectInHand.transform.position.x, -380.0f, objectInHand.transform.position.z);
+        //objectInHand.transform.GetChild(2).gameObject.transform.position =  Vector3(objectInHand.transform.position.x, 380.0f, objectInHand.transform.position.z);
+    }
+
+
+
+
+
+
 
 
 

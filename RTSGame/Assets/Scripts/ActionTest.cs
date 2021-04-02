@@ -11,6 +11,7 @@ public class ActionTest : MonoBehaviour
     public SteamVR_Action_Boolean grabAction; // 3
     public SteamVR_Action_Boolean ChangeViewAction; // 3
     public SteamVR_Action_Boolean BuildAction; // 3
+    public SteamVR_Action_Boolean PreviewAction; // 3
 
 
 
@@ -34,7 +35,11 @@ public class ActionTest : MonoBehaviour
         {
             print("build " + handType);
         }
-      
+        if (Preview())
+        {
+            print("preview " + handType);
+        }
+
 
     }
     public bool GetTeleportDown() // 1
@@ -57,6 +62,11 @@ public class ActionTest : MonoBehaviour
     public bool GetBuild()
     {
         return BuildAction.GetStateDown(handType);
+    }
+
+    public bool Preview()
+    {
+        return PreviewAction.GetStateDown(handType);
     }
 
 }

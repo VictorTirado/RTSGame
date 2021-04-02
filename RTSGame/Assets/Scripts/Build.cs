@@ -9,7 +9,7 @@ public class Build : MonoBehaviour
     public SteamVR_Input_Sources handType; 
 
     public SteamVR_Action_Boolean ShowCanvas;
-    public SteamVR_Action_Boolean PreviewAction;
+    public SteamVR_Action_Boolean GrabAction;
     public GameObject collidingObject = null; 
 
     public bool HasToShow = false;
@@ -17,6 +17,8 @@ public class Build : MonoBehaviour
     public GameObject canvas = null;
 
     public GameObject camera_eyes = null;
+
+    public GameObject building;
    
     // Update is called once per frame
     void Update()
@@ -27,8 +29,9 @@ public class Build : MonoBehaviour
             if (GetBuild()==true)
                 ViewCanvas();
 
-           
-            //Building();
+            if (collidingObject != null)
+                Building();
+     
         }
         
     }
@@ -38,9 +41,9 @@ public class Build : MonoBehaviour
     {
         return ShowCanvas.GetStateDown(handType);
     }
-    public bool GetPreview()
+    public bool GetGrab()
     {
-        return PreviewAction.GetStateDown(handType);
+        return GrabAction.GetStateDown(handType);
     }
     // MUESTRA CANVAS
     public bool ViewCanvas()
@@ -83,20 +86,13 @@ public class Build : MonoBehaviour
        
         if (collidingObject.tag=="Building" &&HasToBuild == true)
         {
-            Debug.Log("ADIOS");
-            if(GetPreview()==true)
+           
+            if(GetGrab())
             {
-                GameObject build = Instantiate(collidingObject, new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity);
-                build.transform.localScale = new Vector3(1, 1, 1);
-                Debug.Log("HOOLAAAAAAAAAAAAAAAAA");
-                HasToBuild = false;
-                collidingObject = null;
+                ShowPreview();
+               
             }
-            //Debug.Log(collidingObject.name);
-           
-           // Vector3 pos = new Vector3(this.transform.position.x, GameObject.Find("TB_Env_Tile_Grass_A").transform.position.y, this.transform.position.z);
-          //  collidingObject.transform.position = pos;
-           
+ 
            
         }
       
@@ -106,7 +102,7 @@ public class Build : MonoBehaviour
     private void CheckBuilding(Collider coll)
     {
         collidingObject = coll.gameObject;
-        Building();
+       // Building();
        // Debug.Log(collidingObject.gameObject.name);
         
     }
@@ -129,4 +125,19 @@ public class Build : MonoBehaviour
            
         }
     }
+
+    public void ShowPreview()
+    {
+        GameObject build = Instantiate(building, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        //var joint = AddFixedJoint();
+        build.transform.localScale = new Vector3(0.04539477f, 0.02854358f, 0.03525941f);
+        //ameObject.GetComponent<ControllerGrabObject>().objectInHand = build;
+        this.GetComponent<PreviewBuilding>().objectInHand = build;
+       // joint.connectedBody = build.GetComponent<Rigidbody>();
+        Debug.Log(build.name);
+        HasToBuild = false;
+        collidingObject = null;
+    }
+
+ 
 }
