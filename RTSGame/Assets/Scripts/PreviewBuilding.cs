@@ -10,8 +10,9 @@ public class PreviewBuilding : MonoBehaviour
     public SteamVR_Action_Boolean grabAction;
     private GameObject collidingObject; // 1
     public GameObject objectInHand; // 2
+    public GameObject cube;
 
-    
+    public bool ShowQuad = false;
 
     // Update is called once per frame
  
@@ -19,9 +20,10 @@ public class PreviewBuilding : MonoBehaviour
 
     public void GrabObject()
     {
+        objectInHand = this.GetComponent<Build>().build;
         // 1
-        objectInHand = collidingObject;
-        collidingObject = null;
+        //objectInHand = collidingObject;
+        //collidingObject = null;
         // 2
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
@@ -30,6 +32,7 @@ public class PreviewBuilding : MonoBehaviour
     private FixedJoint AddFixedJoint()
     {
         FixedJoint fx = gameObject.AddComponent<FixedJoint>();
+        
         fx.breakForce = 20000;
         fx.breakTorque = 20000;
         return fx;
@@ -56,10 +59,11 @@ public class PreviewBuilding : MonoBehaviour
 
     void Update()
     {
+       
         // 1
         if (grabAction.GetLastStateDown(handType))
         {
-            if (collidingObject)
+            if (objectInHand != null)
             {
                 GrabObject();
             }
@@ -77,17 +81,34 @@ public class PreviewBuilding : MonoBehaviour
         if (objectInHand != null)
             ShowPreview();
 
-
+        if (ShowQuad == true)
+            UpdateQuadPos();
 
     }
 
 
     public void ShowPreview()
     {
-        objectInHand.transform.GetChild(2).gameObject.transform.position.Set(objectInHand.transform.position.x, -380.0f, objectInHand.transform.position.z);
-        //objectInHand.transform.GetChild(2).gameObject.transform.position =  Vector3(objectInHand.transform.position.x, 380.0f, objectInHand.transform.position.z);
+      
+        foreach (Transform child in objectInHand.transform)
+        {
+            //Debug.Log(child.name);
+            if (child.tag == "Preview" && ShowQuad == false)
+            {
+              
+                cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.transform.position = new Vector3(objectInHand.transform.position.x, 0.0f, objectInHand.transform.position.z);
+                cube.transform.localScale = new Vector3(child.localScale.x, child.localScale.y, child.localScale.z);
+                ShowQuad = true;
+            }
+        }
+     
     }
 
+    public void UpdateQuadPos()
+    {
+        cube.transform.position = new Vector3(objectInHand.transform.position.x, 0.0f, objectInHand.transform.position.z);
+    }
 
 
 

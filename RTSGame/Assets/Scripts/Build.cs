@@ -19,7 +19,10 @@ public class Build : MonoBehaviour
     public GameObject camera_eyes = null;
 
     public GameObject building;
-   
+
+    public bool set_building = false;
+    public GameObject build = null;
+    public GameObject FinalBuilding = null;
     // Update is called once per frame
     void Update()
     {
@@ -31,9 +34,11 @@ public class Build : MonoBehaviour
 
             if (collidingObject != null)
                 Building();
+            if (GetGrab() == false && this.GetComponent<PreviewBuilding>().ShowQuad == true)
+                SetBuilding();
      
         }
-        
+        Debug.Log(GetGrab());
     }
 
     // EMPUÑADURA PULSADA
@@ -89,6 +94,7 @@ public class Build : MonoBehaviour
            
             if(GetGrab())
             {
+
                 ShowPreview();
                
             }
@@ -128,16 +134,25 @@ public class Build : MonoBehaviour
 
     public void ShowPreview()
     {
-        GameObject build = Instantiate(building, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-        //var joint = AddFixedJoint();
-        build.transform.localScale = new Vector3(0.04539477f, 0.02854358f, 0.03525941f);
-        //ameObject.GetComponent<ControllerGrabObject>().objectInHand = build;
+        var loadedObject = Resources.Load("Prefabs/" + collidingObject.name);
+        Debug.Log(loadedObject);
+        build = (GameObject)GameObject.Instantiate(loadedObject, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        //build = Instantiate(building, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        //build = Instantiate(building, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         this.GetComponent<PreviewBuilding>().objectInHand = build;
-       // joint.connectedBody = build.GetComponent<Rigidbody>();
-        Debug.Log(build.name);
+        build.transform.localScale = new Vector3(0.04539477f, 0.02854358f, 0.03525941f);   
+       
         HasToBuild = false;
         collidingObject = null;
     }
 
- 
+
+    public void SetBuilding()
+    {
+        FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
+        FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+      
+       
+    }
+
 }
