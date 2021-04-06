@@ -81,7 +81,7 @@ public class PreviewBuilding : MonoBehaviour
         if (objectInHand != null)
             ShowPreview();
 
-        if (ShowQuad == true)
+        if (cube != null && ShowQuad == true )
             UpdateQuadPos();
 
     }

@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4512027145135066}
   - component: {fileID: 3221242461586499847}
+  - component: {fileID: 4245115789302076894}
   m_Layer: 0
   m_Name: TB_Bd_Cargo_A
   m_TagString: Untagged
@@ -129,6 +130,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &4245115789302076894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046497794449314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1200004577186568
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +312,7 @@ GameObject:
   - component: {fileID: 4545035985206900}
   - component: {fileID: 33729538343816192}
   - component: {fileID: 23806960945410082}
+  - component: {fileID: 1581620391}
   m_Layer: 0
   m_Name: TB_Bd_House
   m_TagString: Untagged
@@ -366,6 +381,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1581620391
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573487630096066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4, y: 5.696914, z: 5.921999}
+  m_Center: {x: 0.00000023841858, y: 2.8453615, z: 0.00000047683716}
 --- !u!1 &1667877706214200
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +475,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8550425253525731834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

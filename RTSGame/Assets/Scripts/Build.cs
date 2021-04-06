@@ -34,11 +34,11 @@ public class Build : MonoBehaviour
 
             if (collidingObject != null)
                 Building();
-            if (GetGrab() == false && this.GetComponent<PreviewBuilding>().ShowQuad == true)
+            if (GetGrab2() == true && this.GetComponent<PreviewBuilding>().ShowQuad == true)
                 SetBuilding();
      
         }
-        Debug.Log(GetGrab());
+      
     }
 
     // EMPUÑADURA PULSADA
@@ -48,7 +48,13 @@ public class Build : MonoBehaviour
     }
     public bool GetGrab()
     {
+      
         return GrabAction.GetStateDown(handType);
+    }
+    public bool GetGrab2()
+    {
+
+        return GrabAction.GetStateUp(handType);
     }
     // MUESTRA CANVAS
     public bool ViewCanvas()
@@ -149,6 +155,10 @@ public class Build : MonoBehaviour
 
     public void SetBuilding()
     {
+        Destroy(this.GetComponent<PreviewBuilding>().cube);
+        this.GetComponent<PreviewBuilding>().cube = null;
+        //this.GetComponent<PreviewBuilding>().ShowQuad = false;
+
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
         FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
       
