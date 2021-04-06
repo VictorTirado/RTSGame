@@ -11,6 +11,7 @@ public class PreviewBuilding : MonoBehaviour
     private GameObject collidingObject; // 1
     public GameObject objectInHand; // 2
     public GameObject cube;
+    public ArrayList[] materials;
 
     public bool ShowQuad = false;
 
