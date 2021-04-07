@@ -157,12 +157,17 @@ public class Build : MonoBehaviour
     {
         Destroy(this.GetComponent<PreviewBuilding>().cube);
         this.GetComponent<PreviewBuilding>().cube = null;
+
+      
+
         //this.GetComponent<PreviewBuilding>().ShowQuad = false;
 
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
         FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-      
-       
+
+        //this.GetComponent<PreviewBuilding>().ShowQuad = false;
+
+
     }
 
 }

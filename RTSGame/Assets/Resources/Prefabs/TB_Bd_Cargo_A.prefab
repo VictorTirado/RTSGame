@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23623660649930142}
   m_Layer: 0
   m_Name: TB_Bd_Door_Wide_R
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4245115789302076894}
   m_Layer: 0
   m_Name: TB_Bd_Cargo_A
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 23359612837207264}
   m_Layer: 0
   m_Name: TB_Bd_Door_Wide_L
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 23372911269284462}
   m_Layer: 0
   m_Name: TB_Bd_DoorFrame_Wide
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 1581620391}
   m_Layer: 0
   m_Name: TB_Bd_House
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 4222131481341854}
   m_Layer: 0
   m_Name: TB_Bd_Door_Wide
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

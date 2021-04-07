@@ -11,7 +11,6 @@ public class PreviewBuilding : MonoBehaviour
     private GameObject collidingObject; // 1
     public GameObject objectInHand; // 2
     public GameObject cube;
-    public ArrayList[] materials;
 
     public bool ShowQuad = false;
 
@@ -98,6 +97,7 @@ public class PreviewBuilding : MonoBehaviour
             {
               
                 cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.AddComponent<Buildable>();
                 cube.transform.position = new Vector3(objectInHand.transform.position.x, 0.0f, objectInHand.transform.position.z);
                 cube.transform.localScale = new Vector3(child.localScale.x, child.localScale.y, child.localScale.z);
                 ShowQuad = true;
@@ -108,8 +108,13 @@ public class PreviewBuilding : MonoBehaviour
 
     public void UpdateQuadPos()
     {
+        
         cube.transform.position = new Vector3(objectInHand.transform.position.x, 0.0f, objectInHand.transform.position.z);
+       
     }
+
+
+ 
 
 
 

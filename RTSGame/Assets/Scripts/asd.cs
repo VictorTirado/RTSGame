@@ -35,11 +35,14 @@ public class asd : MonoBehaviour
 
         if (peasant == true)
         {
+            GameObject.Find("[CameraRig]").transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
             peasant = false;
             Debug.Log("Player mode");
         }
         else if (peasant == false)
         {
+            GameObject.Find("[CameraRig]").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+           
             peasant = true;
 
             Debug.Log("God mode");
