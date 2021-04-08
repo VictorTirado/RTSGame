@@ -8,8 +8,10 @@ public class Buildable : MonoBehaviour
 
     private int _collisionHit = 0;
 
-    private void FixedUpdate()
+    void Update()
     {
+        Debug.Log(_collisionHit);
+  
         if (_collisionHit > 0)
         {
             isBuildable = false;
@@ -21,15 +23,17 @@ public class Buildable : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Correct");
             isBuildable = true;
         }
+     
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Building") _collisionHit++;
+        if (other.gameObject.tag == "Building") _collisionHit++;
+        Debug.Log(other.gameObject.name);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != "Building") _collisionHit--;
+        if (other.gameObject.tag == "Building") _collisionHit--;
     }
 }
