@@ -54,6 +54,8 @@ public class PreviewBuilding : MonoBehaviour
         }
         // 4
         objectInHand = null;
+        Destroy(this.GetComponent<Build>().build);
+        ShowQuad = false;
     }
 
 

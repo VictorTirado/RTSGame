@@ -34,7 +34,7 @@ public class Build : MonoBehaviour
 
             if (collidingObject != null)
                 Building();
-            if (GetGrab2() == true && this.GetComponent<PreviewBuilding>().ShowQuad == true)
+            if (GetGrab2() == true && this.GetComponent<PreviewBuilding>().ShowQuad == true && this.GetComponent<PreviewBuilding>().cube.GetComponent<Buildable>().isBuildable == true)
                 SetBuilding();
      
         }
@@ -157,7 +157,8 @@ public class Build : MonoBehaviour
     {
         Destroy(this.GetComponent<PreviewBuilding>().cube);
         this.GetComponent<PreviewBuilding>().cube = null;
-
+     
+        //Destroy(build);
       
 
         //this.GetComponent<PreviewBuilding>().ShowQuad = false;
@@ -165,7 +166,11 @@ public class Build : MonoBehaviour
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
         FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-        //this.GetComponent<PreviewBuilding>().ShowQuad = false;
+
+        building = null;
+        build = null;
+        FinalBuilding = null;
+      
 
 
     }
