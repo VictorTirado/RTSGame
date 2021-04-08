@@ -167,9 +167,9 @@ public class Build : MonoBehaviour
         FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
 
-        building = null;
-        build = null;
-        FinalBuilding = null;
+        //building = null;
+        //build = null;
+        //FinalBuilding = null;
       
 
 
