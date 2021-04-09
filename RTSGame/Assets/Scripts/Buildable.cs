@@ -29,7 +29,8 @@ public class Buildable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Building") _collisionHit++;
-        Debug.Log(other.gameObject.name);
+        if (other.gameObject.tag == "Preview") _collisionHit++;
+       
     }
 
     private void OnTriggerExit(Collider other)

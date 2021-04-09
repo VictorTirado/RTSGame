@@ -165,12 +165,14 @@ public class Build : MonoBehaviour
 
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
         FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
+      
 
 
         //building = null;
         //build = null;
         //FinalBuilding = null;
-      
+
 
 
     }
