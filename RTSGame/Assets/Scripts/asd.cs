@@ -35,17 +35,19 @@ public class asd : MonoBehaviour
 
         if (peasant == true)
         {
-            GameObject.Find("[CameraRig]").transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+            GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = false;
+            GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = false;
             peasant = false;
-            Debug.Log("Player mode");
+            
         }
         else if (peasant == false)
         {
             GameObject.Find("[CameraRig]").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-           
+            GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = true;
+            GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = true;
+            //GameObject.Find("Canvas").SetActive(false);
             peasant = true;
 
-            Debug.Log("God mode");
         }
 
         return peasant;

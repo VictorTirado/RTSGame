@@ -32,8 +32,11 @@ public class VRController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (GameObject.Find("VRController").GetComponent<asd>().peasant == true)
         {
+           
+            //GameObject.Find("Canvas").SetActive(false);
             if (PlayerIsInFloor == false)
             {
                 PlayerInFloor();

@@ -8,23 +8,16 @@ public class PreviewBuilding : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
-    private GameObject collidingObject; // 1
-    public GameObject objectInHand; // 2
+ 
+    public GameObject objectInHand;
     public GameObject cube;
 
     public bool ShowQuad = false;
 
-    // Update is called once per frame
- 
-
-
     public void GrabObject()
     {
         objectInHand = this.GetComponent<Build>().build;
-        // 1
-        //objectInHand = collidingObject;
-        //collidingObject = null;
-        // 2
+      
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }
@@ -41,18 +34,18 @@ public class PreviewBuilding : MonoBehaviour
 
     private void ReleaseObject()
     {
-        // 1
+      
         if (GetComponent<FixedJoint>())
         {
-            // 2
+          
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
-            // 3
+          
             objectInHand.GetComponent<Rigidbody>().velocity = controllerPose.GetVelocity();
             objectInHand.GetComponent<Rigidbody>().angularVelocity = controllerPose.GetAngularVelocity();
 
         }
-        // 4
+       
         objectInHand = null;
         Destroy(this.GetComponent<Build>().build);
         this.GetComponent<Build>().build = null;
@@ -63,7 +56,7 @@ public class PreviewBuilding : MonoBehaviour
     void Update()
     {
        
-        // 1
+     
         if (grabAction.GetLastStateDown(handType))
         {
             if (objectInHand != null)
@@ -72,7 +65,7 @@ public class PreviewBuilding : MonoBehaviour
             }
         }
 
-        // 2
+       
         if (grabAction.GetLastStateUp(handType))
         {
             if (objectInHand)
@@ -95,7 +88,7 @@ public class PreviewBuilding : MonoBehaviour
       
         foreach (Transform child in objectInHand.transform)
         {
-            //Debug.Log(child.name);
+         
             if (child.tag == "Preview" && ShowQuad == false)
             {
               
