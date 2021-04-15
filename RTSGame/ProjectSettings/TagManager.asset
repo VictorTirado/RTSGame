@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - Building
   - Preview
+  - Tree
+  - Enemy
   layers:
   - Default
   - TransparentFX

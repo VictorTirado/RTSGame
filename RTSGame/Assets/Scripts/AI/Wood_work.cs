@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class None_work : MonoBehaviour
+public class Wood_work : MonoBehaviour
 {
     private NavMeshAgent agent;
     public GameObject pos;
@@ -35,7 +35,7 @@ public class None_work : MonoBehaviour
     void Update()
     {
 
-        if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+        if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.WoodCutter)
         {
             GoToPos();
             FindResources();
@@ -53,11 +53,12 @@ public class None_work : MonoBehaviour
         }
 
         float distance = Vector3.Distance(this.transform.position, pos.transform.position);
-        if ((transform.position - pos.transform.position).sqrMagnitude < 2f)
+        //Debug.Log(distance);
+        if (distance <= 3f)
             InPosition = true;
-          
-    
-        }
+
+
+    }
 
     private void FindResources()
     {
