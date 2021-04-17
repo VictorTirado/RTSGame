@@ -94,6 +94,7 @@ public class PreviewBuilding : MonoBehaviour
               
                 cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 cube.AddComponent<Buildable>();
+                cube.name = "PEPE";
                 cube.transform.position = new Vector3(objectInHand.transform.position.x, 0.0f, objectInHand.transform.position.z);
                 cube.transform.localScale = new Vector3(child.localScale.x, child.localScale.y, child.localScale.z);
                 ShowQuad = true;

@@ -83,6 +83,7 @@ public class ControllerGrabObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         // 1
         if (grabAction.GetLastStateDown(handType))
         {

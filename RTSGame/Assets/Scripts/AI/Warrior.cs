@@ -14,6 +14,7 @@ public class Warrior : MonoBehaviour
     public int closestCharacter = 0;
     public GameObject enemy;
 
+    public GameObject sword = null;
 
 
     public bool in_pos = false; 
@@ -22,7 +23,8 @@ public class Warrior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("SM_Prop_SwordOrnate_01").gameObject.GetComponent<MeshRenderer>().enabled = true;
+        sword.transform.gameObject.SetActive(true);
+        //fGameObject.Find("SM_Prop_SwordOrnate_01").gameObject.GetComponent<MeshRenderer>().enabled = true;
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
 
