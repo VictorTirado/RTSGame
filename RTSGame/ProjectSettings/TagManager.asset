@@ -10,6 +10,7 @@ TagManager:
   - Preview
   - Tree
   - Enemy
+  - People
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - 
   - CanTeleport
-  - 
-  - 
+  - Device
+  - Villager
   - 
   - 
   - 

@@ -22,5 +22,6 @@ public class ChangeWork : MonoBehaviour
         this.transform.root.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
         
         this.transform.root.GetComponent<Character_Manager>().update_work = true;
+        GameObject.Find("Controller (right)").GetComponent<GetPeople2>().set_people = true;
     }
 }
