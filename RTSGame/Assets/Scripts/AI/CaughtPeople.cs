@@ -20,15 +20,22 @@ public class CaughtPeople : MonoBehaviour
     {
         if (is_caught == true)
         {
-           
+
             m_Animator.SetBool("IsCaught", true);
-            foreach (Transform child in this.transform.GetChild(13))
-            {
-               
-                    child.gameObject.SetActive(true);
-                   
-            }
-          
+           
+
+        }
+        else if (is_caught == false)
+            m_Animator.SetBool("IsCaught", false);
+    }
+    public void ShowWorks()
+    {
+        this.transform.GetChild(13).gameObject.SetActive(true);
+        foreach (Transform child in this.transform.GetChild(13))
+        {
+
+            child.gameObject.SetActive(true);
+
         }
     }
     

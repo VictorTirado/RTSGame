@@ -62,6 +62,7 @@ public class GetPeople2 : MonoBehaviour
                         hit.transform.position = this.transform.position;
                         hit.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                         hit.transform.GetComponent<CaughtPeople>().is_caught = true;
+                        hit.transform.GetComponent<CaughtPeople>().ShowWorks();
                     }
 
 
@@ -79,9 +80,23 @@ public class GetPeople2 : MonoBehaviour
                 {
                     villager_selected.transform.position = new Vector3(hitPoint.x, hitPoint.y + 0.1f, hitPoint.z);
                     villager_selected.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    villager_selected.GetComponent<CaughtPeople>().is_caught = false;
+                    if (villager_selected.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+                    {
+                        villager_selected.GetComponent<Animator>().SetBool("isWalking", true);
+                       
+                        villager_selected.GetComponent<None_work>().LeaveResources = false;
+                        villager_selected.GetComponent<None_work>().HasResources = false;
+                        villager_selected.GetComponent<None_work>().InPosition = false;
+                        villager_selected.GetComponent<None_work>().SetPosition = false;
+                        
+                    }
+                    //villager_selected.GetComponent<None_work>().cm.m_Animator.SetBool("IsCaught", false);
                     hitPoint = hit.point;
                     ShowLaser(hit);
                     leaved = true;
+                    
+                    
                 }
                 //if (teleportAction.GetStateDown(handType))
                 //{

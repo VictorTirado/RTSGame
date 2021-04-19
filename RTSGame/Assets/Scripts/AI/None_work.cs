@@ -10,7 +10,7 @@ public class None_work : MonoBehaviour
 
 
     public Vector3 dest;
-    Character_Manager cm;
+    public Character_Manager cm;
     Collider m_collider;
     float timer = 0.0f;
 
@@ -47,10 +47,16 @@ public class None_work : MonoBehaviour
     {
         if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
-            agent.SetDestination(RandomPointInBounds(m_collider.bounds));
+            dest = RandomPointInBounds(m_collider.bounds);
+            agent.SetDestination(dest);
+            //agent.SetDestination(RandomPointInBounds(m_collider.bounds));
             //agent.SetDestination(pos.transform.position);
             cm.m_Animator.SetBool("isWalking", true);
             SetPosition = true;
+        }
+        if (LeaveResources == false)
+        {
+            agent.SetDestination(dest);
         }
         Debug.DrawLine(this.transform.position, dest);
         float distance = Vector3.Distance(this.transform.position, dest);
