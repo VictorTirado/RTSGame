@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,18 +6,17 @@ using UnityEngine.AI;
 public class None_work : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public GameObject pos;
     public GameObject door;
 
-   
-  
-    Character_Manager cm;
 
+    public Vector3 dest;
+    Character_Manager cm;
+    Collider m_collider;
     float timer = 0.0f;
 
     public bool LeaveResources = false;
     public bool HasResources = false;
-
+    public bool SetPosition = false;
     public bool InPosition = false;
    
 
@@ -29,7 +27,7 @@ public class None_work : MonoBehaviour
     {
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
-
+        m_collider = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(11).GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -47,15 +45,16 @@ public class None_work : MonoBehaviour
     }
     private void GoToPos()
     {
-        if (InPosition == false && HasResources == false && LeaveResources == false)
+        if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
-          
-            agent.SetDestination(pos.transform.position);
-            cm.m_Animator.SetBool("isWalking", true); 
+            agent.SetDestination(RandomPointInBounds(m_collider.bounds));
+            //agent.SetDestination(pos.transform.position);
+            cm.m_Animator.SetBool("isWalking", true);
+            SetPosition = true;
         }
-
-        float distance = Vector3.Distance(this.transform.position, pos.transform.position);
-        if ((transform.position - pos.transform.position).sqrMagnitude < 2f)
+        Debug.DrawLine(this.transform.position, dest);
+        float distance = Vector3.Distance(this.transform.position, dest);
+        if ((transform.position - dest).sqrMagnitude < 2f)
             InPosition = true;
 
        
@@ -99,7 +98,7 @@ public class None_work : MonoBehaviour
             if (this.transform.GetChild(8).gameObject.activeSelf == false || this.transform.GetChild(3).gameObject.activeSelf == false)
             {
                 timer += Time.deltaTime;
-                Debug.Log(timer);
+                
             }
             if (timer >= 5.0f)
             {
@@ -113,7 +112,7 @@ public class None_work : MonoBehaviour
                 LeaveResources = false;
                 timer = 0.0f;
 
-                this.gameObject.transform.LookAt(pos.transform);
+                this.gameObject.transform.LookAt(dest);
                 cm.m_Animator.SetBool("IsFinding", false);
                 cm.m_Animator.SetBool("IsWalking", true);
                
@@ -121,6 +120,7 @@ public class None_work : MonoBehaviour
 
             InPosition = false;
             HasResources = false;
+            SetPosition = false;
         }
 
     }
@@ -128,7 +128,14 @@ public class None_work : MonoBehaviour
     {
         HasResources = true;
         return HasResources;
-    } 
+    }
+
+    public  Vector3 RandomPointInBounds(Bounds bounds)
+    {
+        dest = new Vector3(Random.Range(bounds.min.x, bounds.max.x),0, Random.Range(bounds.min.z, bounds.max.z));
+        return dest;
+      
+    }
 }
 
 
