@@ -33,14 +33,16 @@ public class None_work : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+        if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
-            GoToPos();
-            FindResources();
-            ReturnResources();
-            SetResources();
+            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+            {
+                GoToPos();
+                FindResources();
+                ReturnResources();
+                SetResources();
 
+            }
         }
     }
     private void GoToPos()

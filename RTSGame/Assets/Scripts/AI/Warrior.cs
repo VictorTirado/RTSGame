@@ -33,15 +33,17 @@ public class Warrior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)
+        if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
-            CheckLife();
-            FindClosestEnemy();
-            GoToEnemy();
-            GoToPos();
-            HitEnemy();
+            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)
+            {
+                CheckLife();
+                FindClosestEnemy();
+                GoToEnemy();
+                GoToPos();
+                HitEnemy();
 
+            }
         }
     }
     private void GoToPos()

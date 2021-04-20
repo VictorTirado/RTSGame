@@ -30,14 +30,16 @@ public class Mage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
+        if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
-            CheckLife();
-            FindClosestEnemy();
-            GoToPos();
-            ShotEnemy();
+            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
+            {
+                CheckLife();
+                FindClosestEnemy();
+                GoToPos();
+                ShotEnemy();
 
+            }
         }
     }
     private void GoToPos()

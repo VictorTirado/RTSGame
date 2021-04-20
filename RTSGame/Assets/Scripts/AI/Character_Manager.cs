@@ -190,6 +190,7 @@ public class Character_Manager : MonoBehaviour
         if (new_work == "None")
         {
             this.GetComponent<None_work>().enabled = true;
+            this.GetComponent<Character_Manager>().work_type = Character.None;
             if (gender == Gender.Female)
             {
                 foreach (Transform child in transform)
@@ -217,6 +218,7 @@ public class Character_Manager : MonoBehaviour
         if (new_work == "Woodcutter")
         {
             this.GetComponent<Wood_work>().enabled = true;
+            this.GetComponent<Character_Manager>().work_type = Character.WoodCutter;
             if (gender == Gender.Female)
             {
                 foreach (Transform child in transform)
@@ -243,6 +245,8 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Mage")
         {
+            // IMPORTANTE LINEA 247
+            this.GetComponent<Character_Manager>().work_type = Character.Mage;
             this.GetComponent<Mage>().enabled = true;
             if (gender == Gender.Female)
             {
@@ -251,6 +255,7 @@ public class Character_Manager : MonoBehaviour
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
                 }
+                this.GetComponent<None_work>().enabled = false;
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
                 this.transform.GetChild(5).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_04_A");
                 this.transform.GetChild(5).gameObject.SetActive(true);
@@ -263,6 +268,7 @@ public class Character_Manager : MonoBehaviour
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
                 }
+                this.GetComponent<None_work>().enabled = false;
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
                 this.transform.GetChild(11).gameObject.SetActive(true);
 
@@ -271,7 +277,9 @@ public class Character_Manager : MonoBehaviour
 
         if (new_work == "Soldier")
         {
+            
             this.GetComponent<Warrior>().enabled = true;
+            this.GetComponent<Character_Manager>().work_type = Character.Soldier;
             if (gender == Gender.Female)
             {
                 foreach (Transform child in transform)

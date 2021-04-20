@@ -14,7 +14,8 @@ public class GetPeople2 : MonoBehaviour
     private Transform laserTransform; // 3
     private Vector3 hitPoint; // 4
                               // 1
-   
+
+    public GameObject camera_eyes = null;
 
     public bool set_people = false;
     public GameObject villager_selected = null;
@@ -57,9 +58,16 @@ public class GetPeople2 : MonoBehaviour
                   
                     if (hit.transform.gameObject.tag == "People" && hit.transform.GetComponent<CaughtPeople>().is_caught == false && set_people ==false)
                     {
+                        Ray ray = new Ray(camera_eyes.transform.position, camera_eyes.transform.forward);
+                        Debug.DrawRay(camera_eyes.transform.position, camera_eyes.transform.forward, Color.red, 10.0f);
+
+                        hit.transform.position = ray.GetPoint(0.6f);
+                        //canvas.transform.rotation = final_rot;
+                     
+
                         villager_selected = hit.transform.gameObject;
                         villager_selected.GetComponent<NavMeshAgent>().enabled = false;
-                        hit.transform.position = this.transform.position;
+                        //hit.transform.position = this.transform.position;
                         hit.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                         hit.transform.GetComponent<CaughtPeople>().is_caught = true;
                         hit.transform.GetComponent<CaughtPeople>().ShowWorks();
@@ -80,7 +88,7 @@ public class GetPeople2 : MonoBehaviour
                 {
                     villager_selected.transform.position = new Vector3(hitPoint.x, hitPoint.y + 0.1f, hitPoint.z);
                     villager_selected.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    villager_selected.GetComponent<CaughtPeople>().is_caught = false;
+                   // villager_selected.GetComponent<CaughtPeople>().is_caught = false;
                     if (villager_selected.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
                     {
                         villager_selected.GetComponent<Animator>().SetBool("isWalking", true);
@@ -151,5 +159,6 @@ public class GetPeople2 : MonoBehaviour
     }
 
 
- 
+  
+  
 }
