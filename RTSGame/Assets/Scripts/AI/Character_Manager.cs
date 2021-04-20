@@ -243,6 +243,34 @@ public class Character_Manager : MonoBehaviour
 
             }
         }
+        if (new_work == "Minner")
+        {
+            this.GetComponent<Minner>().enabled = true;
+            this.GetComponent<Character_Manager>().work_type = Character.Minner;
+            if (gender == Gender.Female)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name != "Root")
+                        child.gameObject.SetActive(false);
+                }
+                this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
+                this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_02_A");
+                this.transform.GetChild(3).gameObject.SetActive(true);
+
+            }
+            else if (gender == Gender.Male)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name != "Root")
+                        child.gameObject.SetActive(false);
+                }
+                this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
+                this.transform.GetChild(5).gameObject.SetActive(true);
+
+            }
+        }
         if (new_work == "Mage")
         {
             // IMPORTANTE LINEA 247

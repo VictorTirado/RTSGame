@@ -11,6 +11,8 @@ TagManager:
   - Tree
   - Enemy
   - People
+  - Door_Quarry
+  - Mine
   layers:
   - Default
   - TransparentFX
