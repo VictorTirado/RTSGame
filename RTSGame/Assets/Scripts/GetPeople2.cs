@@ -7,39 +7,36 @@ using Valve.VR;
 public class GetPeople2 : MonoBehaviour
 {
     public SteamVR_Input_Sources handType;
+
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean teleportAction;
-    public GameObject laserPrefab; // 1
-    private GameObject laser; // 2
-    private Transform laserTransform; // 3
-    private Vector3 hitPoint; // 4
-                              // 1
 
+    public GameObject laserPrefab; 
+    public GameObject villager_selected = null;
     public GameObject camera_eyes = null;
+    private GameObject laser;
+
+    private Transform laserTransform; 
+
+    private Vector3 hitPoint;
+    public Vector3 teleportReticleOffset;
 
     public bool set_people = false;
-    public GameObject villager_selected = null;
-    // 6
-    public Vector3 teleportReticleOffset;
-    // 7
+    bool leaved = false;
+
     public LayerMask teleportMask;
     public LayerMask teleport2Mask;
 
-    bool leaved = false;
-    // 8
+   
+
 
 
 
 
     private void Start()
     {
-        // 1
         laser = Instantiate(laserPrefab);
-        // 2
         laserTransform = laser.transform;
-
-
-
     }
 
     // Update is called once per frame
@@ -51,7 +48,6 @@ public class GetPeople2 : MonoBehaviour
             RaycastHit hit;
             if (teleportAction.GetState(handType) && set_people == false)
             {
-               
 
                 if (Physics.Raycast(controllerPose.transform.position, transform.forward, out hit, Mathf.Infinity, teleportMask))
                 {
@@ -62,12 +58,12 @@ public class GetPeople2 : MonoBehaviour
                         Debug.DrawRay(camera_eyes.transform.position, camera_eyes.transform.forward, Color.red, 10.0f);
 
                         hit.transform.position = ray.GetPoint(0.6f);
-                        //canvas.transform.rotation = final_rot;
+                       
                      
 
                         villager_selected = hit.transform.gameObject;
                         villager_selected.GetComponent<NavMeshAgent>().enabled = false;
-                        //hit.transform.position = this.transform.position;
+                       
                         hit.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                         hit.transform.GetComponent<CaughtPeople>().is_caught = true;
                         hit.transform.GetComponent<CaughtPeople>().ShowWorks();
@@ -75,7 +71,7 @@ public class GetPeople2 : MonoBehaviour
 
 
 
-                    Debug.Log("HIIIII");
+                   
                     hitPoint = hit.point;
                     ShowLaser(hit);
 
@@ -83,12 +79,12 @@ public class GetPeople2 : MonoBehaviour
             }
             else if (teleportAction.GetState(handType) &&set_people == true)
             {
-                //Debug.Log(teleportAction.GetState(handType));
+               
                 if(Physics.Raycast(controllerPose.transform.position, transform.forward, out hit, Mathf.Infinity, teleport2Mask))
                 {
                     villager_selected.transform.position = new Vector3(hitPoint.x, hitPoint.y + 0.1f, hitPoint.z);
                     villager_selected.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                   // villager_selected.GetComponent<CaughtPeople>().is_caught = false;
+                  
                     if (villager_selected.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
                     {
                         villager_selected.GetComponent<Animator>().SetBool("isWalking", true);
@@ -99,29 +95,15 @@ public class GetPeople2 : MonoBehaviour
                         villager_selected.GetComponent<None_work>().SetPosition = false;
                         
                     }
-                    //villager_selected.GetComponent<None_work>().cm.m_Animator.SetBool("IsCaught", false);
+                   
                     hitPoint = hit.point;
                     ShowLaser(hit);
-                    leaved = true;
-                    
-                    
+                    leaved = true;  
                 }
-                //if (teleportAction.GetStateDown(handType))
-                //{
-                //    villager_selected.transform.position = new Vector3(hitPoint.x, hitPoint.y + 2, hitPoint.z);
-                //    villager_selected.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                //}
-
-
-
-
-               
-
-
             }
             else if (teleportAction.GetStateUp(handType) == true && villager_selected!=null && leaved == true)
             {
-                Debug.Log("GATA LA POLLA");
+               
                 villager_selected.GetComponent<NavMeshAgent>().enabled = true;
                 villager_selected.GetComponent<CaughtPeople>().is_caught = false;
                 villager_selected = null;
@@ -129,16 +111,10 @@ public class GetPeople2 : MonoBehaviour
                 leaved = false;
 
             }
-                else // 3
+            else 
             {
-                
-                //villager_selected.GetComponent<NavMeshAgent>().enabled = true;
-                //villager_selected = null;
-                //set_people = false;
                 laser.SetActive(false);
-            
-
-            }
+             }
           
 
         }
@@ -146,16 +122,10 @@ public class GetPeople2 : MonoBehaviour
 
     private void ShowLaser(RaycastHit hit)
     {
-        // 1
         laser.SetActive(true);
-        // 2
         laserTransform.position = Vector3.Lerp(controllerPose.transform.position, hitPoint, .5f);
-        // 3
         laserTransform.LookAt(hitPoint);
-        // 4
-        laserTransform.localScale = new Vector3(laserTransform.localScale.x,
-                                                laserTransform.localScale.y,
-                                                hit.distance);
+        laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, hit.distance);
     }
 
 

@@ -8,6 +8,11 @@ public class Buildable : MonoBehaviour
 
     private int _collisionHit = 0;
 
+
+    private void Start()
+    {
+        this.GetComponent<BoxCollider>().isTrigger = true;
+    }
     void Update()
     {
         Debug.Log(_collisionHit);

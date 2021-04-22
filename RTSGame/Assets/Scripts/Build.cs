@@ -133,9 +133,9 @@ public class Build : MonoBehaviour
 
     public void ShowPreview()
     {
-        var loadedObject = Resources.Load("Prefabs/" + collidingObject.name);
+        GameObject loadedObject = Resources.Load("Prefabs/" + collidingObject.name) as GameObject;
        
-        build = (GameObject)GameObject.Instantiate(loadedObject, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        build = GameObject.Instantiate(loadedObject, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z),loadedObject.transform.rotation);
         this.GetComponent<PreviewBuilding>().objectInHand = build;
         build.transform.localScale = new Vector3(0.04539477f, 0.02854358f, 0.03525941f);   
        
@@ -149,8 +149,9 @@ public class Build : MonoBehaviour
         Destroy(this.GetComponent<PreviewBuilding>().cube);
         this.GetComponent<PreviewBuilding>().cube = null;
 
-        FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.0f, this.GetComponent<PreviewBuilding>().transform.position.z), Quaternion.identity);
-        FinalBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, -0.25f, this.GetComponent<PreviewBuilding>().transform.position.z),build.transform.rotation);
+        
+        FinalBuilding.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
    
     }

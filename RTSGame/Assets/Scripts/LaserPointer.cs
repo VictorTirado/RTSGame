@@ -117,7 +117,7 @@ public class LaserPointer : MonoBehaviour
         // 5
         //cameraRigTransform.position = hitPoint + difference;
         //cameraRigTransform.position = new Vector3(hitPoint.x, 20.0f, hitPoint.z) + difference;
-        cameraRigTransform.parent.position = new Vector3(hitPoint.x, 10.0f, hitPoint.z);
+        cameraRigTransform.parent.position = new Vector3(hitPoint.x, 15.0f, hitPoint.z);
     }
 
     private void Flying()
@@ -126,7 +126,7 @@ public class LaserPointer : MonoBehaviour
         PlayerIsInAir = true;
        
         Vector3 pos = new Vector3(this.transform.position.x, 10.0f, this.transform.position.z);
-        GameObject.Find("VRController").transform.position = new Vector3(GameObject.Find("VRController").transform.position.x,10.0f, GameObject.Find("VRController").transform.position.z);
+        GameObject.Find("VRController").transform.position = new Vector3(GameObject.Find("VRController").transform.position.x,15.0f, GameObject.Find("VRController").transform.position.z);
         GameObject.Find("VRController").GetComponent<VRController>().PlayerIsInFloor = false;
     }
 
