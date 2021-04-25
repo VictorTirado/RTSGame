@@ -89,26 +89,30 @@ public class Mage : MonoBehaviour
 
     void FindClosestEnemy()
     {
-        float distanceToClosestEnemy = 1000.0f;
-        enemy closestEnemy = null;
-        enemy[] allEnemies = GameObject.FindObjectsOfType<enemy>();
-
-
-        foreach(enemy currentEnemy in allEnemies)
+        if (cm.m_Animator.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
         {
-            float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
-            Debug.Log(distanceToEnemy);
-            if(distanceToEnemy < distanceToClosestEnemy)
+            Debug.Log("ENTRANDO");
+            float distanceToClosestEnemy = 1000.0f;
+            enemy closestEnemy = null;
+            enemy[] allEnemies = GameObject.FindObjectsOfType<enemy>();
+
+
+            foreach (enemy currentEnemy in allEnemies)
             {
-                distanceToClosestEnemy = distanceToEnemy;
-                closestEnemy = currentEnemy;
+                float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
+                Debug.Log(distanceToEnemy);
+                if (distanceToEnemy < distanceToClosestEnemy)
+                {
+                    distanceToClosestEnemy = distanceToEnemy;
+                    closestEnemy = currentEnemy;
+                }
             }
-        }
-        if (closestEnemy != null)
-        {
-            enemy = closestEnemy.gameObject;
-            Debug.DrawLine(this.transform.position, closestEnemy.transform.position);
-            this.transform.LookAt(closestEnemy.transform.position);  
+            if (closestEnemy != null)
+            {
+                enemy = closestEnemy.gameObject;
+                Debug.DrawLine(this.transform.position, closestEnemy.transform.position);
+                this.transform.LookAt(closestEnemy.transform.position);
+            }
         }
     }
 

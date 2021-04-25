@@ -20,18 +20,22 @@ public class Minner : MonoBehaviour
     public bool SetPosition = false;
     public bool InPosition = false;
     public bool SetWorkPlace = false;
+    public SphereCollider myCollider;
+    public Vector2 randomposition;
     // Start is called before the first frame update
     void Start()
     {
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
-       
+      
 
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
             if (SetWorkPlace == false)
@@ -48,17 +52,18 @@ public class Minner : MonoBehaviour
     }
     private void GoToPos()
     {
+      
         if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
-           
-            agent.SetDestination(mine.transform.position);
+            randomposition = Random.insideUnitCircle.normalized * myCollider.radius;
+            agent.SetDestination(randomposition);
            
             cm.m_Animator.SetBool("isWalking", true);
             SetPosition = true;
         }
         if (LeaveResources == false)
         {
-            agent.SetDestination(mine.transform.position);
+            agent.SetDestination(randomposition);
         }
         Debug.DrawLine(this.transform.position, dest);
         
@@ -155,6 +160,7 @@ public class Minner : MonoBehaviour
             else if (hitCollider.tag == "Mine")
                 mine = hitCollider.gameObject;
         }
+        myCollider = mine.transform.GetComponent<SphereCollider>();
         SetWorkPlace = true;
     }
  
