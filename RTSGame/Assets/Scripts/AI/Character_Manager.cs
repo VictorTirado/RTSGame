@@ -104,7 +104,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Woodcutter")
         {
-            this.GetComponent<Wood_work>().enabled = true;
+            this.GetComponent<Woodcutter>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.WoodCutter;
             if (gender == Gender.Female)
             {

@@ -56,14 +56,17 @@ public class Minner : MonoBehaviour
         if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
             randomposition = Random.insideUnitCircle.normalized * myCollider.radius;
-            agent.SetDestination(randomposition);
+            dest = mine.transform.position;
+            dest.x += randomposition.x;
+            dest.z += randomposition.y;
+            agent.SetDestination(dest);
            
             cm.m_Animator.SetBool("isWalking", true);
             SetPosition = true;
         }
         if (LeaveResources == false)
         {
-            agent.SetDestination(randomposition);
+            agent.SetDestination(dest);
         }
         Debug.DrawLine(this.transform.position, dest);
         
