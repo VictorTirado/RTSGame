@@ -9,6 +9,7 @@ public class Minner : MonoBehaviour
     private NavMeshAgent agent;
     public GameObject pos;
     public GameObject mine;
+    public GameObject pick;
 
     public Vector3 dest;
     public Character_Manager cm;
@@ -22,9 +23,12 @@ public class Minner : MonoBehaviour
     public bool SetWorkPlace = false;
     public SphereCollider myCollider;
     public Vector2 randomposition;
+
+   
     // Start is called before the first frame update
     void Start()
     {
+        pick.transform.gameObject.SetActive(true);
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
       

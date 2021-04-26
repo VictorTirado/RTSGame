@@ -29,6 +29,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.11, y: 4.38, z: 6.35}
   m_Center: {x: 0, y: 2.31, z: 0}
+--- !u!114 &2911807046320088501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816685571582884511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa61ab3a627fa54a98bc3a9324c004d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2161081130582906835
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 1465345507094816, guid: df05567bf3cda054194415c637784b11, type: 3}
       propertyPath: m_TagString
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465345507094816, guid: df05567bf3cda054194415c637784b11, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4235211727628996, guid: df05567bf3cda054194415c637784b11, type: 3}
       propertyPath: m_LocalPosition.x

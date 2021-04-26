@@ -31,6 +31,7 @@ public class CaughtPeople : MonoBehaviour
     public void ShowWorks()
     {
         this.transform.GetChild(13).gameObject.SetActive(true);
+        GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().UpdateWorkers();
         foreach (Transform child in this.transform.GetChild(13))
         {
 

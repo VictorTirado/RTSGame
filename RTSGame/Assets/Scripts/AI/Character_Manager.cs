@@ -73,6 +73,9 @@ public class Character_Manager : MonoBehaviour
 
     public void UpdateWork(string new_work)
     {
+
+        if (this.GetComponent<Character_Manager>().work_type == Character.Soldier)
+            this.GetComponent<Warrior>().sword.SetActive(false);
         Debug.Log(new_work);
         if (new_work == "None")
         {
@@ -112,6 +115,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Wood") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_02_A");
@@ -124,6 +129,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Wood") as RuntimeAnimatorController;
                 this.transform.GetChild(5).gameObject.SetActive(true);
@@ -140,6 +147,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_02_A");
@@ -152,6 +161,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
                 this.transform.GetChild(5).gameObject.SetActive(true);
@@ -169,6 +180,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<None_work>().enabled = false;
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
@@ -182,6 +195,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<None_work>().enabled = false;
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
@@ -201,6 +216,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Warrior") as RuntimeAnimatorController;
                 this.transform.GetChild(5).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_04_A");
@@ -213,6 +230,8 @@ public class Character_Manager : MonoBehaviour
                 {
                     if (child.name != "Root")
                         child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Warrior") as RuntimeAnimatorController;
                 this.transform.GetChild(6).gameObject.SetActive(true);

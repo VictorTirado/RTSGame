@@ -84,7 +84,7 @@ public class Build : MonoBehaviour
         Quaternion final_rot = Quaternion.Euler(camera_eyes.transform.rotation.eulerAngles.x + 90, camera_eyes.transform.rotation.eulerAngles.y, rotation.z);
 
         canvas.transform.position = ray.GetPoint(0.6f);
-        canvas.transform.rotation = final_rot;
+        canvas.transform.rotation = Quaternion.Euler(GameObject.Find("Camera (eye)").transform.rotation.x, GameObject.Find("Camera (eye)").transform.rotation.y , GameObject.Find("Camera (eye)").transform.rotation.z);
         canvas.SetActive(true);
     }
 
@@ -150,7 +150,7 @@ public class Build : MonoBehaviour
         this.GetComponent<PreviewBuilding>().cube = null;
 
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, -0.25f, this.GetComponent<PreviewBuilding>().transform.position.z),build.transform.rotation);
-        
+        FinalBuilding.GetComponent<Workers_Capacity>().UpdateWorkersCap();
         FinalBuilding.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
    

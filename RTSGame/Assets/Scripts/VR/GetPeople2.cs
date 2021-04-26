@@ -100,7 +100,13 @@ public class GetPeople2 : MonoBehaviour
                 hit2.transform.position = ray.GetPoint(0.6f);
                 villager_selected = hit2.transform.gameObject;
                 villager_selected.GetComponent<NavMeshAgent>().enabled = false;
+                //var lookPos = GameObject.Find("VRController").transform.position - villager_selected.transform.position;
+                //lookPos.y = 0;
+                //var rotation = Quaternion.LookRotation(lookPos);
 
+                villager_selected.transform.rotation = Quaternion.Euler(GameObject.Find("Camera (eye)").transform.rotation.x, GameObject.Find("Camera (eye)").transform.rotation.y - 180, GameObject.Find("Camera (eye)").transform.rotation.z);
+                //villager_selected.transform.rotation = Quaternion.Slerp(villager_selected.transform.rotation, rotation, Time.deltaTime * 1);
+               
                 hit2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                 hit2.transform.GetComponent<CaughtPeople>().is_caught = true;
                 hit2.transform.GetComponent<CaughtPeople>().ShowWorks();
@@ -141,6 +147,7 @@ public class GetPeople2 : MonoBehaviour
                 set_people = false;
                 leaved = false;
                 selected = false;
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().ResetWorkers();
             }
             else 
             {
