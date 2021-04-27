@@ -84,6 +84,7 @@ public class Woodcutter : MonoBehaviour
 
         if (InPosition == true)
         {
+            this.transform.LookAt(tree.transform);
             cm.m_Animator.SetBool("isWalking", false);
             cm.m_Animator.SetBool("isFinding", true);
         }
