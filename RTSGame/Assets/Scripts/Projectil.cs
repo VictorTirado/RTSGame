@@ -17,4 +17,11 @@ public class Projectil : MonoBehaviour
     {
         rb.velocity = transform.forward * 3;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+            Destroy(this.gameObject);
+
+    }
 }
