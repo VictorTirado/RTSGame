@@ -73,9 +73,11 @@ public class Character_Manager : MonoBehaviour
 
     public void UpdateWork(string new_work)
     {
+        ResetVillager();
+      
 
-        if (this.GetComponent<Character_Manager>().work_type == Character.Soldier)
-            this.GetComponent<Warrior>().sword.SetActive(false);
+
+
         Debug.Log(new_work);
         if (new_work == "None")
         {
@@ -239,5 +241,41 @@ public class Character_Manager : MonoBehaviour
             }
         }
        
+    }
+
+    public void ResetVillager()
+    {
+        if (this.GetComponent<Character_Manager>().work_type == Character.Soldier)
+        {
+            this.GetComponent<Warrior>().sword.SetActive(false);
+            this.GetComponent<Warrior>().enabled = false;
+
+        }
+        else if (this.GetComponent<Character_Manager>().work_type == Character.WoodCutter)
+        {
+            this.GetComponent<Woodcutter>().axe.SetActive(false);
+            this.GetComponent<Woodcutter>().HasResources = false;
+            this.GetComponent<Woodcutter>().LeaveResources = false;
+            this.GetComponent<Woodcutter>().SetPosition = false;
+            this.GetComponent<Woodcutter>().InPosition = false;
+            this.GetComponent<Woodcutter>().SetWorkPlace = false;
+            this.GetComponent<Woodcutter>().resources = 0;
+            this.GetComponent<Woodcutter>().enabled = false;
+        }
+        else if (this.GetComponent<Character_Manager>().work_type == Character.Minner)
+        {
+            this.GetComponent<Minner>().pick.SetActive(false);
+            this.GetComponent<Minner>().HasResources = false;
+            this.GetComponent<Minner>().LeaveResources = false;
+            this.GetComponent<Minner>().SetPosition = false;
+            this.GetComponent<Minner>().InPosition = false;
+            this.GetComponent<Minner>().SetWorkPlace = false;
+            this.GetComponent<Minner>().resources = 0;
+            this.GetComponent<Minner>().enabled = false;
+        }
+        else if (this.GetComponent<Character_Manager>().work_type == Character.None)
+            this.GetComponent<None_work>().enabled = false;
+        else if (this.GetComponent<Character_Manager>().work_type == Character.Mage)
+            this.GetComponent<Mage>().enabled = false;
     }
 }

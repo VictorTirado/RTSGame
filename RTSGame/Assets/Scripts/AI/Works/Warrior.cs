@@ -23,7 +23,7 @@ public class Warrior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sword.transform.gameObject.SetActive(true);
+       
         //fGameObject.Find("SM_Prop_SwordOrnate_01").gameObject.GetComponent<MeshRenderer>().enabled = true;
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
@@ -33,6 +33,7 @@ public class Warrior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sword.transform.gameObject.SetActive(true);
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)

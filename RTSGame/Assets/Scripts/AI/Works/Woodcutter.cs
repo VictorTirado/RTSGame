@@ -9,7 +9,7 @@ public class Woodcutter : MonoBehaviour
     private NavMeshAgent agent;
     public GameObject pos;
     public GameObject tree;
-
+    public GameObject axe;
     public Vector3 dest;
     public Character_Manager cm;
    
@@ -25,6 +25,7 @@ public class Woodcutter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
       
@@ -34,7 +35,7 @@ public class Woodcutter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        axe.gameObject.SetActive(true);
 
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
@@ -158,7 +159,7 @@ public class Woodcutter : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 200.0f);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.tag == "Door_Quarry")
+            if (hitCollider.tag == "Door_Samwill")
                 pos = hitCollider.gameObject;
             else if (hitCollider.tag == "Tree")
                 tree = hitCollider.gameObject;

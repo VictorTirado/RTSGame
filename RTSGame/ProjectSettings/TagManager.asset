@@ -13,6 +13,7 @@ TagManager:
   - People
   - Door_Quarry
   - Mine
+  - Door_Samwill
   layers:
   - Default
   - TransparentFX

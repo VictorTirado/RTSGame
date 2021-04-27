@@ -28,7 +28,7 @@ public class Minner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pick.transform.gameObject.SetActive(true);
+      
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
       
@@ -38,7 +38,7 @@ public class Minner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        pick.transform.gameObject.SetActive(true);
 
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
