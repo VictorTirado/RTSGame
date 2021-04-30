@@ -25,6 +25,7 @@ public class None_work : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        door = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(10).gameObject;
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
         m_collider = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(11).GetComponent<Collider>();

@@ -84,7 +84,7 @@ public class ControllerGrabObject : MonoBehaviour
     void Update()
     {
        
-        // 1
+        
         if (grabAction.GetLastStateDown(handType))
         {
             if (collidingObject)
@@ -93,7 +93,7 @@ public class ControllerGrabObject : MonoBehaviour
             }
         }
 
-        // 2
+        
         if (grabAction.GetLastStateUp(handType))
         {
             if (objectInHand)

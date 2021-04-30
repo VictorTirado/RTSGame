@@ -19,6 +19,11 @@ public class Workers_Manager : MonoBehaviour
     public int current_minners = 0;
 
     public int current_none_workers = 0;
+    public int current_buildings = 0;
+    bool first_update = false;
+    public GameObject Building_Manager;
+
+    public int villagers;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +33,15 @@ public class Workers_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
-      
+        villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters;
+        
+      if (first_update== false)
+        {
+            CurrentBuildings();
+            UpdateWorkers();
+            first_update = true;
+        }
 
     }
 
@@ -60,5 +71,16 @@ public class Workers_Manager : MonoBehaviour
         current_none_workers = 0;
         current_soldiers = 0;
         current_woodcutters = 0;
+    }
+
+
+    public void CurrentBuildings()
+    {
+     
+        foreach(Transform child in Building_Manager.transform)
+        {
+            if (child.tag == "Building")
+                current_buildings += 1;
+        }
     }
 }
