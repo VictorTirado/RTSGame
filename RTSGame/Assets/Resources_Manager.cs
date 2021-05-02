@@ -80,7 +80,7 @@ public class Resources_Manager : MonoBehaviour
             timer_add_wood = 0.0f;
         }
 
-
+        
 
         //HAPINESS
         if (food_add_in_minute - spend_food_in_minute >= 5)
