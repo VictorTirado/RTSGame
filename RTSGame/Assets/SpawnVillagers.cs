@@ -12,7 +12,16 @@ public class SpawnVillagers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var vill_fake_1 = Instantiate(villager, spawn_point.transform);
+        vill_fake_1.transform.position = spawn_point.transform.position;
+        vill_fake_1.transform.parent = GameObject.Find("Villagers").transform;
+        var vill_fake_2 = Instantiate(villager, spawn_point.transform);
+        vill_fake_2.transform.position = spawn_point.transform.position;
+        vill_fake_2.transform.parent = GameObject.Find("Villagers").transform;
+        var vill_fake_3 = Instantiate(villager, spawn_point.transform);
+        vill_fake_3.transform.position = spawn_point.transform.position;
+        vill_fake_3.transform.parent = GameObject.Find("Villagers").transform;
+
     }
 
     // Update is called once per frame

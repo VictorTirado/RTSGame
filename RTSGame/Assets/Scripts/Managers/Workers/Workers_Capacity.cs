@@ -33,6 +33,5 @@ public class Workers_Capacity : MonoBehaviour
 
         else if (gameObject.layer == 14)
             GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().woodcutters_capacity += 2;
-
     }
 }
