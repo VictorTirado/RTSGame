@@ -7,6 +7,7 @@ public class Custscene_Manager : MonoBehaviour
     // Start is called before the first frame update
     Animator controller;
     public AudioSource text;
+    public AudioClip eloi;
     void Start()
     {
         controller = GameObject.Find("Character_Male_King_01").GetComponent<Animator>();
@@ -29,6 +30,7 @@ public class Custscene_Manager : MonoBehaviour
     public void Talk()
     {
         controller.SetBool("Stand", false);
+        
         text.Play();
         controller.SetBool("Talk", true);
 
