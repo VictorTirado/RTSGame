@@ -14,6 +14,7 @@ TagManager:
   - Door_Quarry
   - Mine
   - Door_Samwill
+  - book
   layers:
   - Default
   - TransparentFX

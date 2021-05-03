@@ -12,6 +12,10 @@ public class SpawnVillagers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ChangeMap.naming == "Sazed" || ChangeMap.naming == "Breeze")
+            Instantiate(Resources.Load("Prefabs/People/Sazed"));
+        else if (ChangeMap.naming == "Vin")
+            Instantiate(Resources.Load("Prefabs/People/Vin"));
         var vill_fake_1 = Instantiate(villager, spawn_point.transform);
         vill_fake_1.transform.position = spawn_point.transform.position;
         vill_fake_1.transform.parent = GameObject.Find("Villagers").transform;
