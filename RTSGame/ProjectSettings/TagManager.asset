@@ -15,6 +15,8 @@ TagManager:
   - Mine
   - Door_Samwill
   - book
+  - Door_Farm
+  - Vetegable
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - Warrior
   - Quarry
   - Samwill
-  - 
+  - Windmill
   - 
   - 
   - 

@@ -150,8 +150,15 @@ public class Build : MonoBehaviour
         this.GetComponent<PreviewBuilding>().cube = null;
 
         FinalBuilding = Instantiate(build, new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, -0.25f, this.GetComponent<PreviewBuilding>().transform.position.z),build.transform.rotation);
+        if(build.name == "Farm(Clone)")
+            FinalBuilding.transform.position = new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, -1.6f, this.GetComponent<PreviewBuilding>().transform.position.z);
+        else if (build.name == "Samwill(Clone)")
+            FinalBuilding.transform.position = new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 0.23f, this.GetComponent<PreviewBuilding>().transform.position.z);
+        if (build.name == "Quarry(Clone)")
+            FinalBuilding.transform.position = new Vector3(this.GetComponent<PreviewBuilding>().transform.position.x, 1.0f, this.GetComponent<PreviewBuilding>().transform.position.z);
         FinalBuilding.GetComponent<Workers_Capacity>().UpdateWorkersCap();
         FinalBuilding.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        FinalBuilding.transform.parent = GameObject.Find("Buildings").gameObject.transform;
         FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
    
     }

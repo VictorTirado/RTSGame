@@ -18,6 +18,9 @@ public class Workers_Manager : MonoBehaviour
     public int minners_capacity = 0;
     public int current_minners = 0;
 
+    public int farmers_capacity = 0;
+    public int current_farmers = 0;
+
     public int current_none_workers = 0;
     public int current_buildings = 0;
     bool first_update = false;
@@ -34,7 +37,7 @@ public class Workers_Manager : MonoBehaviour
     void Update()
     {
 
-        villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters;
+        villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters + current_farmers;
         
       if (first_update== false)
         {
@@ -59,6 +62,8 @@ public class Workers_Manager : MonoBehaviour
                 current_mages += 1;
             else if (child.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
                 current_none_workers += 1;
+            else if (child.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Farmer)
+                current_farmers += 1;
 
 
         }
@@ -71,6 +76,7 @@ public class Workers_Manager : MonoBehaviour
         current_none_workers = 0;
         current_soldiers = 0;
         current_woodcutters = 0;
+        current_farmers = 0;
     }
 
 

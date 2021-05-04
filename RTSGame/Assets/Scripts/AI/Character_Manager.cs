@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Character_Manager : MonoBehaviour
 {
-    public enum Character { None, Soldier, WoodCutter, Minner, Mage };
+    public enum Character { None, Soldier, WoodCutter, Minner, Mage, Farmer };
     public enum Gender { Male, Female, None };
     public Character work_type = Character.None;
     public Gender gender = Gender.None;
@@ -167,6 +167,38 @@ public class Character_Manager : MonoBehaviour
                         child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
+                this.transform.GetChild(5).gameObject.SetActive(true);
+
+            }
+        }
+        if (new_work == "Farmer")
+        {
+            this.GetComponent<Minner>().enabled = true;
+            this.GetComponent<Character_Manager>().work_type = Character.Farmer;
+            if (gender == Gender.Female)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name != "Root")
+                        child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
+                }
+                this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Farmer") as RuntimeAnimatorController;
+                this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_03_A");
+                this.transform.GetChild(3).gameObject.SetActive(true);
+
+            }
+            else if (gender == Gender.Male)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name != "Root")
+                        child.gameObject.SetActive(false);
+                    else if (child.name == "Root")
+                        child.gameObject.SetActive(true);
+                }
+                this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Farmer") as RuntimeAnimatorController;
                 this.transform.GetChild(5).gameObject.SetActive(true);
 
             }

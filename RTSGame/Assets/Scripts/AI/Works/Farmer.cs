@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class None_work : MonoBehaviour
+public class Farmer : MonoBehaviour
 {
     private NavMeshAgent agent;
     public GameObject door;
-
-
+    public GameObject vegetable;
     public Vector3 dest;
     public Character_Manager cm;
     Collider m_collider;
@@ -18,14 +17,15 @@ public class None_work : MonoBehaviour
     public bool HasResources = false;
     public bool SetPosition = false;
     public bool InPosition = false;
-   
+    public bool SetWorkPlace = false;
+
 
     //TODO: FUNCION PARA CUANDO SE MUERA
     //TODO: SETEAR UN PUNTO RANDOM AL QUE IR (AHORA ES UN CUBO)
     // Start is called before the first frame update
     void Start()
     {
-        door = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(11).gameObject;
+        door = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(10).gameObject;
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
         m_collider = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(12).GetComponent<Collider>();
@@ -36,7 +36,9 @@ public class None_work : MonoBehaviour
     {
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
-            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+            if (SetWorkPlace == false)
+                PlaceToWork();
+            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Farmer)
             {
                 GoToPos();
                 FindResources();
@@ -50,16 +52,14 @@ public class None_work : MonoBehaviour
     {
         if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
-            dest = RandomPointInBounds(m_collider.bounds);
-            agent.SetDestination(dest);
-            //agent.SetDestination(RandomPointInBounds(m_collider.bounds));
-            //agent.SetDestination(pos.transform.position);
+           
+            agent.SetDestination(vegetable.transform.position);
             cm.m_Animator.SetBool("isWalking", true);
             SetPosition = true;
         }
         if (LeaveResources == false)
         {
-            agent.SetDestination(dest);
+            agent.SetDestination(vegetable.transform.position);
         }
         Debug.DrawLine(this.transform.position, dest);
         float distance = Vector3.Distance(this.transform.position, dest);
@@ -130,6 +130,7 @@ public class None_work : MonoBehaviour
             InPosition = false;
             HasResources = false;
             SetPosition = false;
+            SetWorkPlace = false;
         }
 
     }
@@ -139,11 +140,20 @@ public class None_work : MonoBehaviour
         return HasResources;
     }
 
-    public  Vector3 RandomPointInBounds(Bounds bounds)
+
+
+    public void PlaceToWork()
     {
-        dest = new Vector3(Random.Range(bounds.min.x, bounds.max.x),0, Random.Range(bounds.min.z, bounds.max.z));
-        return dest;
-      
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 200.0f);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == "Door_Farm")
+                door = hitCollider.gameObject;
+            else if (hitCollider.tag == "Vegetable")
+                vegetable = hitCollider.gameObject;
+        }
+       
+        SetWorkPlace = true;
     }
 }
 
