@@ -47,9 +47,19 @@ public class Cycle : MonoBehaviour
 
     public void ChangeStation()
     {
+       
 
-        if (timer2 >= 12)
+        if (timer2 >= 4)
         {
+            if (actual_season == seasons.Spring)
+                actual_season = seasons.Summer;
+            else if (actual_season == seasons.Summer)
+                actual_season = seasons.Autum;
+            else if (actual_season == seasons.Autum)
+                actual_season = seasons.Winter;
+            else if (actual_season == seasons.Winter)
+                actual_season = seasons.Spring;
+           
             foreach (Transform child in map.transform)
             {
                 foreach (Transform child2 in child)
@@ -82,14 +92,7 @@ public class Cycle : MonoBehaviour
                 }
                
             }
-            if (actual_season == seasons.Spring)
-                actual_season = seasons.Summer;
-            else if (actual_season == seasons.Summer)
-                actual_season = seasons.Autum;
-            else if (actual_season == seasons.Autum)
-                actual_season = seasons.Winter;
-            else if (actual_season == seasons.Winter)
-                actual_season = seasons.Spring;
+           
 
             timer2 = 0;
         }
