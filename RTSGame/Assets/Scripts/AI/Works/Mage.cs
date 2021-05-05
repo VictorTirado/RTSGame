@@ -34,10 +34,12 @@ public class Mage : MonoBehaviour
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
             {
-                CheckLife();
-                FindClosestEnemy();
-                GoToPos();
-                ShotEnemy();
+                if (cm.CheckLife() == true)
+                {
+                    FindClosestEnemy();
+                    GoToPos();
+                    ShotEnemy();
+                }
 
             }
         }
@@ -50,41 +52,12 @@ public class Mage : MonoBehaviour
 
     }
 
-    private void CheckLife()
-    {
-        if(HP<=0)
-        {
-            cm.m_Animator.SetBool("IsDying", true);
-        }
-    }
-    //private void CheckEnemies()
+    //private void CheckLife()
     //{
-      
-    //    Collider[] hitColliders = Physics.OverlapSphere(transform.position, 500.00f);
-       
-    //    for (var i = 0; i < hitColliders.Length; i++)
+    //    if(HP<=0)
     //    {
-
-    //        if (hitColliders[i].tag == "Enemy")
-    //        {
-    //            //enemies += 1;
-    //            Debug.Log("enemy detected" + hitColliders[i].name);
-    //            //this.transform.LookAt(hitColliders[i].transform.position);
-
-    //            float distance = (hitColliders[i].transform.position - this.transform.position).magnitude;
-    //           // Distance[i] = distance;
-    //            if (distance < near_enemy)
-    //            {
-    //                near_enemy = distance;
-    //                enemy = hitColliders[i].gameObject;
-                   
-
-    //            }
-               
-    //        }
-            
+    //        cm.m_Animator.SetBool("IsDying", true);
     //    }
-      
     //}
 
     void FindClosestEnemy()

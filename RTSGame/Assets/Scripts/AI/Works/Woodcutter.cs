@@ -43,10 +43,13 @@ public class Woodcutter : MonoBehaviour
                 PlaceToWork();
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.WoodCutter)
             {
-                GoToPos();
-                FindResources();
-                ReturnResources();
-                SetResources();
+                if (cm.CheckLife() == true)
+                {
+                    GoToPos();
+                    FindResources();
+                    ReturnResources();
+                    SetResources();
+                }
 
             }
         }
@@ -169,5 +172,7 @@ public class Woodcutter : MonoBehaviour
         Debug.Log(myCollider.radius);
         SetWorkPlace = true;
     }
- 
+
+
+
 }

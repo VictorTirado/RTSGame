@@ -46,10 +46,13 @@ public class Minner : MonoBehaviour
                 PlaceToWork();
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Minner)
             {
-                GoToPos();
-                FindResources();
-                ReturnResources();
-                SetResources();
+                if (cm.CheckLife() == true)
+                {
+                    GoToPos();
+                    FindResources();
+                    ReturnResources();
+                    SetResources();
+                }
 
             }
         }

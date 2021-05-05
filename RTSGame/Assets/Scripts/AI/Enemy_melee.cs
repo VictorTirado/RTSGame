@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemy : MonoBehaviour
+public class Enemy_melee : MonoBehaviour
 {
     // Start is called before the first frame update
     private NavMeshAgent agent;
@@ -24,8 +24,7 @@ public class enemy : MonoBehaviour
     {
 
         if (enemy_selected == null)
-            FindClosestEnemy();
-
+            FindClosestEnemy(); 
         else if(enemy_selected != null)
         {
             GoToEnemy();
@@ -43,11 +42,12 @@ public class enemy : MonoBehaviour
         if (enemy_selected != null)
         {
             agent.SetDestination(enemy_selected.transform.position);
+            agent.speed = 5.0f;
             m_Animator.SetBool("isWalking", true);
             float distanceToEnemy = (enemy_selected.transform.position - this.transform.position).sqrMagnitude;
             Debug.Log(distanceToEnemy);
-            if (distanceToEnemy <= 400.0f) in_pos = true;
-            else if (distanceToEnemy >= 400.0f) in_pos = false;
+            if (distanceToEnemy <= 2.0f) in_pos = true;
+            else if (distanceToEnemy >= 2.0f) in_pos = false;
 
         }
         if (in_pos == true) agent.isStopped = true;

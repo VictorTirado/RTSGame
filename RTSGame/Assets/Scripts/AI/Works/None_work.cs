@@ -38,10 +38,13 @@ public class None_work : MonoBehaviour
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
             {
-                GoToPos();
-                FindResources();
-                ReturnResources();
-                SetResources();
+                if (cm.CheckLife() == true)
+                {
+                    GoToPos();
+                    FindResources();
+                    ReturnResources();
+                    SetResources();
+                }
 
             }
         }
@@ -145,6 +148,8 @@ public class None_work : MonoBehaviour
         return dest;
       
     }
+
+
 }
 
 

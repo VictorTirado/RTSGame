@@ -10,6 +10,8 @@ public class Character_Manager : MonoBehaviour
     public Character work_type = Character.None;
     public Gender gender = Gender.None;
 
+    public int HP = 100;
+    public bool alive = true;
 
     public NavMeshAgent agent;
 
@@ -309,5 +311,18 @@ public class Character_Manager : MonoBehaviour
             this.GetComponent<None_work>().enabled = false;
         else if (this.GetComponent<Character_Manager>().work_type == Character.Mage)
             this.GetComponent<Mage>().enabled = false;
+    }
+    public bool CheckLife()
+    {
+        if (HP <= 0)
+        {
+            alive = false;
+            m_Animator.SetBool("IsDying", true);
+            agent.Stop();
+
+            return alive;
+        }
+
+        return alive;
     }
 }
