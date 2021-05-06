@@ -13,6 +13,8 @@ public class enemy : MonoBehaviour
     public GameObject enemy_selected;
     public Animator m_Animator;
 
+    public GameObject fireball;
+
     public bool in_pos = false;
     void Start()
     {
@@ -97,5 +99,12 @@ public class enemy : MonoBehaviour
             Debug.DrawLine(this.transform.position, closestVillager.transform.position);
             this.transform.LookAt(closestVillager.transform.position);
         }
+    }
+
+    public void Cast()
+    {
+        // new Vector3 = this.transform.Find("Hand_L").transform.position;
+        var fake_fireball = Instantiate(fireball, this.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").gameObject.transform.position, transform.rotation);
+        fake_fireball.GetComponent<Projectil_2>().enemy = enemy_selected;
     }
 }

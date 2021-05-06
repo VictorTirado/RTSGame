@@ -105,6 +105,8 @@ public class Mage : MonoBehaviour
        // new Vector3 = this.transform.Find("Hand_L").transform.position;
         Instantiate(fireball, this.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").gameObject.transform.position, transform.rotation);
     }
+
+
 }
 
 
