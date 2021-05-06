@@ -175,7 +175,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Farmer")
         {
-            this.GetComponent<Minner>().enabled = true;
+            this.GetComponent<Farmer>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Farmer;
             if (gender == Gender.Female)
             {

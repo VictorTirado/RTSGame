@@ -45,7 +45,7 @@ public class enemy : MonoBehaviour
             agent.SetDestination(enemy_selected.transform.position);
             m_Animator.SetBool("isWalking", true);
             float distanceToEnemy = (enemy_selected.transform.position - this.transform.position).sqrMagnitude;
-            Debug.Log(distanceToEnemy);
+            //Debug.Log(distanceToEnemy);
             if (distanceToEnemy <= 400.0f) in_pos = true;
             else if (distanceToEnemy >= 400.0f) in_pos = false;
 

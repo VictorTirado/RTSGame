@@ -45,7 +45,7 @@ public class Enemy_melee : MonoBehaviour
             agent.speed = 5.0f;
             m_Animator.SetBool("isWalking", true);
             float distanceToEnemy = (enemy_selected.transform.position - this.transform.position).sqrMagnitude;
-            Debug.Log(distanceToEnemy);
+            //Debug.Log(distanceToEnemy);
             if (distanceToEnemy <= 2.0f) in_pos = true;
             else if (distanceToEnemy >= 2.0f) in_pos = false;
 

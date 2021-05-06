@@ -25,7 +25,7 @@ public class Farmer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        door = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(10).gameObject;
+        SetWorkPlace = false;
         agent = this.GetComponent<Character_Manager>().agent;
         cm = this.transform.GetComponent<Character_Manager>();
         m_collider = GameObject.Find("TB_Bd_House_TwoStory_C").transform.GetChild(12).GetComponent<Collider>();
@@ -61,9 +61,10 @@ public class Farmer : MonoBehaviour
         {
             agent.SetDestination(vegetable.transform.position);
         }
-        Debug.DrawLine(this.transform.position, dest);
-        float distance = Vector3.Distance(this.transform.position, dest);
-        if ((transform.position - dest).sqrMagnitude < 2f)
+        Debug.DrawLine(this.transform.position, vegetable.transform.position);
+        float distance = Vector3.Distance(this.transform.position, vegetable.transform.position);
+        Debug.Log(distance);
+        if (distance < 2.0f)
             InPosition = true;
 
        
@@ -149,7 +150,7 @@ public class Farmer : MonoBehaviour
         {
             if (hitCollider.tag == "Door_Farm")
                 door = hitCollider.gameObject;
-            else if (hitCollider.tag == "Vegetable")
+            else if (hitCollider.tag == "Vetegable")
                 vegetable = hitCollider.gameObject;
         }
        
