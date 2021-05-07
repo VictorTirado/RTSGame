@@ -23,7 +23,24 @@ public class Projectil_2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "People")
+        {
+            enemy = other.gameObject;
+            Hit();
             Destroy(this.gameObject);
+
+        }
+
+    }
+
+    public void Hit()
+    {
+        int dmg = Random.Range(55, 65);
+        if (enemy.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
+            enemy.GetComponent<Mage>().HP -= dmg;
+        else if (enemy.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)
+            enemy.GetComponent<Warrior>().HP -= dmg;
+        else
+            enemy.GetComponent<Character_Manager>().HP -= dmg;
 
     }
 }
