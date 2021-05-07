@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectil : MonoBehaviour
 {
     Rigidbody rb;
+    public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,26 @@ public class Projectil : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "People")
+        {
+            enemy = other.gameObject;
+            Hit();
             Destroy(this.gameObject);
+
+        }
+
+    }
+    public void Hit()
+    {
+        int dmg = Random.Range(55, 65);
+        if (enemy.GetComponent<enemy>() != null)
+            enemy.GetComponent<enemy>().HP -= dmg;
+      
+        else if (enemy.GetComponent<Enemy_melee>() != null)
+            enemy.GetComponent<Enemy_melee>().HP -= dmg;
+
+
 
     }
 }
+
