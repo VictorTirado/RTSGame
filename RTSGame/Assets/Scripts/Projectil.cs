@@ -21,7 +21,7 @@ public class Projectil : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "People")
+        if (other.tag == "Enemy")
         {
             enemy = other.gameObject;
             Hit();

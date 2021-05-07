@@ -17,6 +17,7 @@ public class Character_Manager : MonoBehaviour
 
     public bool update_work = false;
     public Animator m_Animator;
+    public bool has_to_move = false;
 
     // Start is called before the first frame update
     void Start()

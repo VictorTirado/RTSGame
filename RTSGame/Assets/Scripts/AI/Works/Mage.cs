@@ -30,25 +30,39 @@ public class Mage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.GetComponent<CaughtPeople>().is_caught == false)
+        if (this.GetComponent<CaughtPeople>().is_caught == false ||cm.has_to_move == false)
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
             {
                 if (cm.CheckLife() == true)
                 {
                     FindClosestEnemy();
-                    GoToPos();
-                    ShotEnemy();
+                    if (cm.has_to_move == true)
+                        GoToPos(GameObject.Find("Controller (right)").GetComponent<Move_Workers>().hitPoint);
+                    //GoToPos();
+                    if (enemy != null)
+                        ShotEnemy();
+                 
                 }
 
             }
         }
     }
-    private void GoToPos()
+    public void GoToPos(Vector3 dest)
     {
-       
+        agent.Resume();
+        cm.m_Animator.SetBool("isShooting", false);
+        cm.m_Animator.SetBool("isWalking", true);
+        agent.SetDestination(dest);
 
-      
+        float distance = Vector3.Distance(this.transform.position, dest);
+        Debug.Log(distance);
+        if ((transform.position - dest).sqrMagnitude < 2.0f)
+        {
+            cm.m_Animator.SetBool("isWalking", false);
+            cm.has_to_move = false;
+        }
+
 
     }
 
@@ -91,9 +105,11 @@ public class Mage : MonoBehaviour
 
     private void ShotEnemy()
     {
+        this.transform.LookAt(enemy.transform.position);
         if (enemy != null)
         {
             cm.m_Animator.SetBool("isShooting", true);
+            
 
         }
         else
@@ -102,9 +118,10 @@ public class Mage : MonoBehaviour
 
     public void Cast()
     {
-       // new Vector3 = this.transform.Find("Hand_L").transform.position;
-        Instantiate(fireball, this.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").gameObject.transform.position, transform.rotation);
+      if(enemy != null)
+            Instantiate(fireball, this.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").gameObject.transform.position, transform.rotation);
     }
+
 
 
 }

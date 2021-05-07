@@ -51,7 +51,7 @@ public class Warrior : MonoBehaviour
     }
     private void GoToPos()
     {
-
+        //agent.SetDestination();
        
 
 

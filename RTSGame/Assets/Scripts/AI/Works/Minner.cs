@@ -128,10 +128,19 @@ public class Minner : MonoBehaviour
             if (timer >= 5.0f)
             {
                 if (cm.gender == Character_Manager.Gender.Male)
+                {
                     this.transform.GetChild(8).gameObject.SetActive(true);
+                    this.transform.GetChild(12).gameObject.SetActive(true);
+                    this.transform.GetChild(15).gameObject.SetActive(true);
+
+                }
 
                 if (cm.gender == Character_Manager.Gender.Female)
+                {
                     this.transform.GetChild(3).gameObject.SetActive(true);
+                    this.transform.GetChild(12).gameObject.SetActive(true);
+                    this.transform.GetChild(15).gameObject.SetActive(true);
+                }
 
 
                 LeaveResources = false;

@@ -16,12 +16,12 @@ public class Move_Workers : MonoBehaviour
 
     private GameObject laser;
     public GameObject laserPrefab;
-    private Vector3 hitPoint;
+    public Vector3 hitPoint;
     private Transform laserTransform;
 
     private NavMeshAgent agent;
 
-    List<GameObject> villagers_selected;
+   public List<GameObject> villagers_selected;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,18 +52,22 @@ public class Move_Workers : MonoBehaviour
         }
         if (MoveWorkers.GetStateUp(handType) == true)
         {
-            Debug.Log("HOOOOOOOOOOOOOOO");
+            
             for (int i = 0; i < villagers_selected.Count; i++)
             {
-                villagers_selected[i].GetComponent<NavMeshAgent>().SetDestination(hitPoint);
-                villagers_selected[i].GetComponent<Animator>().SetBool("isShooting", false);
-                villagers_selected[i].GetComponent<Animator>().SetBool("isWalking", true);
+                villagers_selected[i].GetComponent<Character_Manager>().has_to_move = true;
+                //villagers_selected[i].GetComponent<Mage>().GoToPos(hitPoint);
+                //villagers_selected[i].GetComponent<NavMeshAgent>().SetDestination(hitPoint);
+                //villagers_selected[i].GetComponent<Animator>().SetBool("isShooting", false);
+                //villagers_selected[i].GetComponent<Animator>().SetBool("isWalking", true);
              
             }
             Destroy(laser);
 
 
         }
+
+
     }
 
     private void ShowLaser(RaycastHit hit)
