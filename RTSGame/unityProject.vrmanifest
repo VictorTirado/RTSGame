@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.rtsgame.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\viccd\\Documents\\GitHub\\RTSGame\\RTSGame\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Usuario\\Documents\\GitHub\\RTSGame\\RTSGame\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "RTSGame [Testing]"

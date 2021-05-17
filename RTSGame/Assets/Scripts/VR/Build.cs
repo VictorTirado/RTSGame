@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.AI;   
 
 public class Build : MonoBehaviour
 {
     // Start is called before the first frame update
-    public SteamVR_Input_Sources handType; 
-
+    public SteamVR_Input_Sources handType;
+    public NavMeshSurface surface;
     public SteamVR_Action_Boolean ShowCanvas;
     public SteamVR_Action_Boolean GrabAction;
     public GameObject collidingObject = null; 
@@ -160,6 +161,8 @@ public class Build : MonoBehaviour
         FinalBuilding.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         FinalBuilding.transform.parent = GameObject.Find("Buildings").gameObject.transform;
         FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
+
+        surface.BuildNavMesh();
    
     }
 
