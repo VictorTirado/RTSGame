@@ -17,6 +17,7 @@ public class VRController : MonoBehaviour
     private Transform m_cameraRig = null;
     private Transform m_Head = null;
     public bool PlayerIsInFloor = false;
+    public GameObject commander;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class VRController : MonoBehaviour
     {
         m_cameraRig = SteamVR_Render.Top().origin;
         m_Head = SteamVR_Render.Top().head;
+        commander = GameObject.FindGameObjectWithTag("Commander");
     }
 
     // Update is called once per frame
@@ -35,17 +37,20 @@ public class VRController : MonoBehaviour
 
         if (GameObject.Find("VRController").GetComponent<asd>().peasant == true)
         {
-           
+
             //GameObject.Find("Canvas").SetActive(false);
-            if (PlayerIsInFloor == false)
-            {
-                PlayerInFloor();
-            }
+            //if (PlayerIsInFloor == false)
+            //{
+            //    PlayerInFloor();
+            //}
             HandleHead();
             CalculateMovement();
             HandleHeight();
         }
-        
+        //else if(GameObject.Find("VRController").GetComponent<asd>().peasant == false)
+        //    PlayerInAir();
+
+
     }
     private void HandleHead()
     {
@@ -98,15 +103,31 @@ public class VRController : MonoBehaviour
         m_characterController.center = newCenter;
     }
 
-    private void PlayerInFloor()
+    public void PlayerInFloor()
     {
         if(this.transform.position.y>=5)
         {
             PlayerIsInFloor = true;
-            Vector3 pos = new Vector3(this.transform.position.x, 0.0f,this.transform.position.z);
-            this.transform.position = pos;
+            //fVector3 pos = new Vector3(this.transform.position.x, 0.0f,this.transform.position.z);
+            this.transform.position = commander.transform.position;
+           
+            commander.gameObject.SetActive(false);
             GameObject.Find("Controller (right)").GetComponent<LaserPointer>().PlayerIsInAir = false;
         }
       
+    }
+    public void PlayerInAir()
+    {
+       
+      
+           // PlayerIsInFloor = true;
+            Vector3 pos = new Vector3(this.transform.position.x, 20.0f, this.transform.position.z);
+            commander.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.transform.position = pos;
+        commander.gameObject.SetActive(true);
+            GameObject.Find("Controller (right)").GetComponent<LaserPointer>().PlayerIsInAir = true;
+        PlayerIsInFloor = false;
+      
+
     }
 }

@@ -37,6 +37,8 @@ public class asd : MonoBehaviour
         {
             GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = false;
             GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = false;
+            //this.gameObject.GetComponent<VRController>().PlayerIsInFloor = false;
+            this.gameObject.GetComponent<VRController>().PlayerInAir();
             peasant = false;
             
         }
@@ -45,6 +47,8 @@ public class asd : MonoBehaviour
             GameObject.Find("[CameraRig]").transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = true;
             GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = true;
+            this.gameObject.GetComponent<VRController>().PlayerInFloor();
+           
             //GameObject.Find("Canvas").SetActive(false);
             peasant = true;
 

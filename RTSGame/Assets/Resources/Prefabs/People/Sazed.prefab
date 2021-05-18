@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sazed
       objectReference: {fileID: 0}
+    - target: {fileID: 115648, guid: 5ad43ee3802caa04ab0928a13c462a56, type: 3}
+      propertyPath: m_TagString
+      value: Commander
+      objectReference: {fileID: 0}
     - target: {fileID: 495996, guid: 5ad43ee3802caa04ab0928a13c462a56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.426

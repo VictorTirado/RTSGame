@@ -17,6 +17,7 @@ TagManager:
   - book
   - Door_Farm
   - Vetegable
+  - Commander
   layers:
   - Default
   - TransparentFX

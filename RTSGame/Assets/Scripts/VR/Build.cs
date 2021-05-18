@@ -27,7 +27,7 @@ public class Build : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        surface = GameObject.Find("Navmesh").GetComponent<NavMeshSurface>();
         if (GameObject.Find("VRController").GetComponent<asd>().peasant == false)
         {
             if (GetBuild()==true)
