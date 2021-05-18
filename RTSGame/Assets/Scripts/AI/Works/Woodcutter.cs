@@ -102,14 +102,14 @@ public class Woodcutter : MonoBehaviour
 
             cm.m_Animator.SetBool("isWalking", true);
             agent.SetDestination(pos.transform.position);
-
-            if ((transform.position - pos.transform.position).sqrMagnitude < 2f)
+        
+            if ((transform.position - pos.transform.position).sqrMagnitude < 2.5f)
                 LeaveResources = true;
         }
     }
     private void SetResources()
     {
-
+      
         if (LeaveResources == true)
         {
             for (int i = 0; i < this.transform.childCount; i++)

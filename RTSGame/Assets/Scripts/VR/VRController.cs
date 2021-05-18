@@ -6,7 +6,7 @@ using Valve.VR;
 public class VRController : MonoBehaviour
 {
     public float m_sensitivity = 0.1f;
-    public float m_MaxSpeed = 1.0f;
+    public float m_MaxSpeed = 5.0f;
 
     public SteamVR_Action_Boolean m_MovePress = null;
     public SteamVR_Action_Vector2 m_MoveValue = null;
