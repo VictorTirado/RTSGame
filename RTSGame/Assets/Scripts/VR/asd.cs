@@ -8,6 +8,7 @@ public class asd : MonoBehaviour
     // Start is called before the first frame update
     public SteamVR_Input_Sources handType; // 1
     public SteamVR_Action_Boolean ChangeViewAction; // 3
+    public GameObject swords;
 
     public bool peasant = false;
     public bool InGround = false;
@@ -39,6 +40,7 @@ public class asd : MonoBehaviour
             GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = false;
             //this.gameObject.GetComponent<VRController>().PlayerIsInFloor = false;
             this.gameObject.GetComponent<VRController>().PlayerInAir();
+            swords.SetActive(false);
             peasant = false;
             
         }
@@ -48,7 +50,7 @@ public class asd : MonoBehaviour
             GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = true;
             GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = true;
             this.gameObject.GetComponent<VRController>().PlayerInFloor();
-           
+            swords.SetActive(true);
             //GameObject.Find("Canvas").SetActive(false);
             peasant = true;
 
