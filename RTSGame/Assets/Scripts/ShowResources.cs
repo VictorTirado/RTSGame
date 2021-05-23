@@ -21,11 +21,11 @@ public class ShowResources : MonoBehaviour
     void Update()
     {
         if (this.name == "Wood_number")
-            woodmesh.text = rm.wood.ToString();
+            woodmesh.text = rm.wood.ToString("0");
         else if (this.name == "Food_number")
-            foodmesh.text = rm.food.ToString();
+            foodmesh.text = rm.food.ToString("0");
         else if (this.name == "Gold_number")
-            goldmesh.text = rm.gold.ToString();
+            goldmesh.text = rm.gold.ToString("0");
 
     }
 }

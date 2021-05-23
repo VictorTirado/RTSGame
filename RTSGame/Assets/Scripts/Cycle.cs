@@ -49,7 +49,7 @@ public class Cycle : MonoBehaviour
     {
        
 
-        if (timer2 >= 4)
+        if (timer2 >= 2)
         {
             if (actual_season == seasons.Spring)
                 actual_season = seasons.Summer;

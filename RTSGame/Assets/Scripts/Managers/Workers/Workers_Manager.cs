@@ -37,7 +37,7 @@ public class Workers_Manager : MonoBehaviour
     void Update()
     {
 
-        villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters + current_farmers;
+        villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters + current_farmers + 1;
         
       if (first_update== false)
         {
