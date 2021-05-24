@@ -147,7 +147,7 @@ public class GetPeople2 : MonoBehaviour
                 set_people = false;
                 leaved = false;
                 selected = false;
-                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().ResetWorkers();
+                //GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().ResetWorkers();
             }
             else 
             {

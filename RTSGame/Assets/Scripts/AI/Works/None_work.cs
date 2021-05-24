@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class None_work : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     public GameObject door;
 
 
@@ -34,6 +34,7 @@ public class None_work : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        agent = this.GetComponent<Character_Manager>().agent;
         if (this.GetComponent<CaughtPeople>().is_caught == false)
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)

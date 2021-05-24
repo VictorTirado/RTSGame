@@ -45,7 +45,8 @@ public class ChangeWork : MonoBehaviour
         //        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
         //}
         parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
-
+        GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().ResetWorkers();
+        GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().UpdateWorkers();
 
 
 

@@ -33,7 +33,7 @@ public class SpawnVillagers : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer>=90- 90 *GameObject.Find("Resources_manager").GetComponent<Resources_Manager>().hapiness*0.1f)
+        if(timer>=45- 45 *GameObject.Find("Resources_manager").GetComponent<Resources_Manager>().hapiness*0.1f)
         {
             var villager_fake = Instantiate(villager, spawn_point.transform);
             villager_fake.transform.position = spawn_point.transform.position;

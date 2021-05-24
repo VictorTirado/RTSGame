@@ -151,6 +151,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa61ab3a627fa54a98bc3a9324c004d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &7375634892820044773
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711949480060612184}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.245, y: 2.87, z: 2.895}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.13, y: 2.19, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &11915297548927047
 PrefabInstance:
   m_ObjectHideFlags: 0

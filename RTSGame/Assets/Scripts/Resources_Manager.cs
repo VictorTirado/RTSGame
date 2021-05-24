@@ -51,7 +51,7 @@ public class Resources_Manager : MonoBehaviour
 
         if(timer_add_food>=1.0f)
         {
-            food += (wm.current_none_workers * 0.265f + wm.current_farmers * 0.53f - wm.villagers * 0.1749f);
+            food += (wm.current_none_workers * 0.3194f + wm.current_farmers * 0.53f - wm.villagers * 0.1749f);
             timer_add_food = 0.0f;
         }
 
@@ -78,7 +78,7 @@ public class Resources_Manager : MonoBehaviour
 
         if (timer_add_wood >= 1.0f)
         {
-            wood += (wm.current_woodcutters * 0.39f - wm.current_buildings * 0.1749f);
+            wood += (wm.current_woodcutters * 0.78f - wm.current_buildings * 0.1749f);
             timer_add_wood = 0.0f;
         }
         //spend_wood_in_minute = 3 * wm.current_buildings;

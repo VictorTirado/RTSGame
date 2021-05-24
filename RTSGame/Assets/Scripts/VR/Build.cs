@@ -20,10 +20,15 @@ public class Build : MonoBehaviour
     public GameObject camera_eyes = null;
 
     public GameObject building;
+    public Resources_Manager rm;
 
     public bool set_building = false;
     public GameObject build = null;
     public GameObject FinalBuilding = null;
+    private void Start()
+    {
+        rm = GameObject.Find("Resources_manager").GetComponent<Resources_Manager>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -92,7 +97,7 @@ public class Build : MonoBehaviour
     public void Building()
     {
        
-        if (collidingObject.tag=="Building" &&HasToBuild == true)
+        if (collidingObject.tag=="Building" &&HasToBuild == true && CheckResources() == true)
         {
            
             if(GetGrab())
@@ -162,8 +167,114 @@ public class Build : MonoBehaviour
         FinalBuilding.transform.parent = GameObject.Find("Buildings").gameObject.transform;
         FinalBuilding.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation ;
 
-        surface.BuildNavMesh();
+        GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_buildings += 1;
+        Updateresources();
+     
+       // surface.UpdateNavMesh(surface.navMeshData);
    
+    }
+
+
+    public bool CheckResources()
+    {
+        if(collidingObject.name == "Farm" && rm.wood - 60 >0.0f)
+        {
+       
+            return true;
+           
+        }
+        if (collidingObject.name == "Mage" && rm.wood - 175 > 0.0f && rm.gold - 95 > 0.0f)
+        {
+            return true;
+        }
+        if (collidingObject.name == "Warriors" && rm.wood - 175 > 0.0f && rm.gold - 70 > 0.0f)
+        {
+           
+            return true;
+        }
+        if (collidingObject.name == "Market" && rm.wood - 175 > 0.0f && rm.gold - 20 > 0.0f)
+        {
+          
+            return true;
+        }
+        if (collidingObject.name == "Quarry" && rm.wood - 150 > 0.0f)
+        {
+           
+            return true;
+
+        }
+        if (collidingObject.name == "Samwill" && rm.wood - 100 > 0.0f)
+        {
+          
+            return true;
+
+        }
+        if (collidingObject.name == "TB_Bd_Cargo_A" && rm.wood - 30 > 0.0f)
+        {
+         
+            return true;
+
+        }
+        if (collidingObject.name == "TB_Bd_Church" && rm.wood - 275 > 0.0f && rm.gold - 100>0.0f)
+        {
+          
+            return true;
+        }
+
+        return false;
+    }
+    public void Updateresources()
+    {
+        if (build.name == "Farm(Clone)")
+        {
+            rm.wood -= 60f;
+           
+
+        }
+        if (build.name == "Mage(Clone)")
+        {
+            rm.wood -= 175f;
+            rm.gold -= 95f;
+           
+        }
+        if (build.name == "Warriors(Clone)")
+        {
+            rm.wood -= 175f;
+            rm.gold -= 70f;
+            
+        }
+        if (build.name == "Market(Clone)")
+        {
+            rm.wood -= 175f;
+            rm.gold -= 20f;
+          
+        }
+        if (build.name == "Quarry(Clone)" )
+        {
+            rm.wood -= 150f;
+            
+
+        }
+        if (build.name == "Samwill(Clone)" )
+        {
+            rm.wood -= 100f;
+         
+
+        }
+        if (build.name == "TB_Bd_Cargo_A(Clone)")
+        {
+            rm.wood -= 30f;
+          
+
+        }
+        if (build.name == "TB_Bd_Church(Clone)" )
+        {
+            rm.wood -= 275f;
+            rm.gold -= 100f;
+            
+        }
+
+       
     }
 
 }
