@@ -18,6 +18,8 @@ TagManager:
   - Door_Farm
   - Vetegable
   - Commander
+  - Axe
+  - Pick
   layers:
   - Default
   - TransparentFX
