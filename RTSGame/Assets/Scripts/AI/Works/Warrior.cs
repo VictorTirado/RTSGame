@@ -34,25 +34,44 @@ public class Warrior : MonoBehaviour
     void Update()
     {
         sword.transform.gameObject.SetActive(true);
-        if (this.GetComponent<CaughtPeople>().is_caught == false)
+        if (this.GetComponent<CaughtPeople>().is_caught == false || cm.has_to_move  == false)
         {
             if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)
             {
                 if (cm.CheckLife() == true)
                 {
                     FindClosestEnemy();
-                    GoToEnemy();
-                    GoToPos();
-                    HitEnemy();
+                    if (cm.has_to_move == true)
+                        GoToPos(GameObject.Find("Controller (right)").GetComponent<Move_Workers>().hitPoint);
+                    if (cm.has_to_move == false)
+                        GoToEnemy();
+
+                    //    GoToEnemy();
+                    //GoToPos();
+                    if (enemy != null && cm.has_to_move == false)
+                        HitEnemy();
+                   
                 }
 
             }
         }
     }
-    private void GoToPos()
+    private void GoToPos(Vector3 dest)
     {
-        //agent.SetDestination();
-       
+        Debug.Log("HIIIIIIIIIIII");
+        //agent.Resume();
+        cm.m_Animator.SetBool("isHitting", false);
+        cm.m_Animator.SetBool("isWalking", true);
+        agent.SetDestination(dest);
+
+        float distance = Vector3.Distance(this.transform.position, dest);
+        Debug.Log(distance);
+        if ((transform.position - dest).sqrMagnitude < 2.0f)
+        {
+            cm.m_Animator.SetBool("isWalking", false);
+            cm.has_to_move = false;
+        }
+
 
 
     }
@@ -85,9 +104,9 @@ public class Warrior : MonoBehaviour
 
     void FindClosestEnemy()
     {
-        if (enemy == null)
+        if (enemy == null && cm.has_to_move == false)
         {
-            cm.m_Animator.SetBool("isWalking", false);
+            //cm.m_Animator.SetBool("isWalking", false);
 
             cm.m_Animator.Play("Idle");
 

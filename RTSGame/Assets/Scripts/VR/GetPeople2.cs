@@ -46,7 +46,7 @@ public class GetPeople2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         if (GameObject.Find("VRController").GetComponent<asd>().peasant == false)
         {
              RaycastHit hit;
@@ -156,6 +156,7 @@ public class GetPeople2 : MonoBehaviour
           
 
         }
+        UpdateTroops();
     }
 
     private void ShowLaser(RaycastHit hit)
@@ -174,7 +175,18 @@ public class GetPeople2 : MonoBehaviour
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, hit.distance);
     }
 
-
+    private void UpdateTroops()
+    {
+        if (people_selected.Capacity > 0)
+        {
+            for (int i = 0; i < people_selected.Capacity; i++)
+            {
+                if (people_selected[i].transform.GetChild(14).gameObject.active == false)
+                    people_selected.Remove(people_selected[i]);
+            }
+        }
+      
+    }
   
   
 }
