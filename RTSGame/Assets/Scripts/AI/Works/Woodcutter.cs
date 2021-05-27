@@ -75,7 +75,7 @@ public class Woodcutter : MonoBehaviour
         Debug.DrawLine(this.transform.position, dest);
         
         float distance = Vector3.Distance(this.transform.position, dest);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if ((transform.position - dest).sqrMagnitude <= 2.0f)
             InPosition = true;
 

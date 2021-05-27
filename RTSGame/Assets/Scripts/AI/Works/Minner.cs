@@ -79,7 +79,7 @@ public class Minner : MonoBehaviour
         
         float distance = Vector3.Distance(this.transform.position, dest);
         Debug.Log(distance);
-        if ((transform.position - dest).sqrMagnitude < 10.0f)
+        if (distance < 4.0f)
             InPosition = true;
 
 

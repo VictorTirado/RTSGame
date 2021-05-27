@@ -42,9 +42,20 @@ public class Move_Workers : MonoBehaviour
             {
                 if (Physics.Raycast(controllerPose.transform.position, transform.forward, out hit, Mathf.Infinity, teleportMask))
                 {
+                    
                     Ray ray;
                     ray = new Ray(camera_eyes.transform.position, camera_eyes.transform.forward);
-                    hitPoint = hit.point;
+                    Debug.Log(hit.transform.tag);
+                    if (hit.transform.gameObject.tag == "Untagged")
+                    {
+                        hitPoint = hit.point;
+                        for (int i = 0; i < villagers_selected.Count; i++)
+                        {
+                            villagers_selected[i].GetComponent<Character_Manager>().has_to_move = true;
+                           
+
+                        }
+                    }
                     ShowLaser(hit);
                 }
 
@@ -55,7 +66,7 @@ public class Move_Workers : MonoBehaviour
             
             for (int i = 0; i < villagers_selected.Count; i++)
             {
-                villagers_selected[i].GetComponent<Character_Manager>().has_to_move = true;
+                //villagers_selected[i].GetComponent<Character_Manager>().has_to_move = true;
                 //villagers_selected[i].GetComponent<Mage>().GoToPos(hitPoint);
                 //villagers_selected[i].GetComponent<NavMeshAgent>().SetDestination(hitPoint);
                 //villagers_selected[i].GetComponent<Animator>().SetBool("isShooting", false);

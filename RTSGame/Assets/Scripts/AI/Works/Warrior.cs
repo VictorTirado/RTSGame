@@ -65,7 +65,7 @@ public class Warrior : MonoBehaviour
         agent.SetDestination(dest);
 
         float distance = Vector3.Distance(this.transform.position, dest);
-        Debug.Log(distance);
+       // Debug.Log(distance);
         if ((transform.position - dest).sqrMagnitude < 2.0f)
         {
             cm.m_Animator.SetBool("isWalking", false);

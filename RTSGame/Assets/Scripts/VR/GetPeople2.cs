@@ -64,7 +64,7 @@ public class GetPeople2 : MonoBehaviour
                         ray = new Ray(camera_eyes.transform.position, camera_eyes.transform.forward);
                         //Debug.DrawRay(camera_eyes.transform.position, camera_eyes.transform.forward, Color.red, 10.0f);
 
-                       villager_selected = hit.transform.gameObject;
+                        villager_selected = hit.transform.gameObject;
                         hit2 = hit;
                         selected = true;
 
