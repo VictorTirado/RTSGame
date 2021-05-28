@@ -8,13 +8,13 @@ public class Update_Current_Workers : MonoBehaviour
     private TextMeshPro textMesh;
     public GameObject parent = null;
     public GameObject manager;
-    int score = 10;
+   
     void Start()
     {
         textMesh = gameObject.GetComponent<TextMeshPro>();
         parent = transform.parent.gameObject;
         manager = GameObject.Find("Workers_Manager").gameObject;
-        score = 10;
+     
     
     }
 
@@ -46,9 +46,9 @@ public class Update_Current_Workers : MonoBehaviour
             textMesh.text = manager.GetComponent<Workers_Manager>().current_mages.ToString();
 
         }
-        if (parent.name == "Hunter")
+        if (parent.name == "Farmer")
         {
-            textMesh.text = manager.GetComponent<Workers_Manager>().current_minners.ToString();
+            textMesh.text = manager.GetComponent<Workers_Manager>().current_farmers.ToString();
 
         }
     }

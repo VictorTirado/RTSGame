@@ -34,11 +34,14 @@ public class enemy : MonoBehaviour
             ShotEnemy();
         }
 
-        
+
         if (HP <= 0)
+        {
             m_Animator.SetBool("isDying", true);
-           
-    }
+            agent.Stop();
+        }
+
+        }
 
     private void GoToEnemy()
     {
@@ -106,5 +109,10 @@ public class enemy : MonoBehaviour
         // new Vector3 = this.transform.Find("Hand_L").transform.position;
         var fake_fireball = Instantiate(fireball, this.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L/Hand_L").gameObject.transform.position, transform.rotation);
         fake_fireball.GetComponent<Projectil_2>().enemy = enemy_selected;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

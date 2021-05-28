@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 3707077563711008074}
   - component: {fileID: 2139492180}
   - component: {fileID: 4885654368083916631}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Farm
   m_TagString: Building
   m_Icon: {fileID: 0}

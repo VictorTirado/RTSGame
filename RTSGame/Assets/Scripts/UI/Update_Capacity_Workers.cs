@@ -46,9 +46,9 @@ public class Update_Capacity_Workers : MonoBehaviour
             textMesh.text = manager.GetComponent<Workers_Manager>().mages_capacity.ToString();
 
         }
-        if (parent.name == "Hunter")
+        if (parent.name == "Farmer")
         {
-            textMesh.text = manager.GetComponent<Workers_Manager>().minners_capacity.ToString();
+            textMesh.text = manager.GetComponent<Workers_Manager>().farmers_capacity.ToString();
 
         }
 

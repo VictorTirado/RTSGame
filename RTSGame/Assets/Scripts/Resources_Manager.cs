@@ -9,34 +9,23 @@ public class Resources_Manager : MonoBehaviour
    
     public int hapiness = 0;
 
-    float timer_wood = 0.0f;
-   
-    float timer_gold = 0.0f;
     //FOOD
  
     public float food = 0;
     public float food_benefits = 20;
-    public float timer_spend_food = 0.0f;
     public float timer_add_food = 0.0f;
-    public float spend_food_in_minute = 0.0f;
-    public float food_add_in_minute = 0.0f;
+
 
     //WOOD
     public float wood = 115;
     public float wood_benefits = 20;
-    public float timer_spend_wood = 0.0f;
     public float timer_add_wood = 0.0f;
-    public float spend_wood_in_minute = 0.0f;
-    public float wood_add_in_minute = 0.0f;
+
 
     //GOLD
-    public float gold = 0;
-    public float gold_benefits = 20;
-    public float timer_spend_gold = 0.0f;
-    public float timer_add_gold = 0.0f;
-
-    float spend_wood = 0.0f;
-    float add_wood = 0.0f;
+    public float gold = 0.0f;
+    public float gold_benefits = 0.0f;
+    private float timer_add_gold = 0.0f;
 
     Workers_Manager wm;
     void Start()
@@ -49,7 +38,7 @@ public class Resources_Manager : MonoBehaviour
     {
         //FOOD
         timer_add_food += Time.deltaTime;
-        timer_spend_food += Time.deltaTime;
+       
         food_benefits = (wm.current_none_workers * 0.3194f + wm.current_farmers * 0.53f - wm.villagers * 0.1749f)*60;
 
         if (timer_add_food>=1.0f)
@@ -58,26 +47,12 @@ public class Resources_Manager : MonoBehaviour
             timer_add_food = 0.0f;
         }
 
-        //spend_food_in_minute = wm.villagers *1*2;
-        //food_add_in_minute = wm.villagers * 3 * 1.5f;
-
-       
-        //if (timer_spend_food >= (60/ spend_food_in_minute))
-        //{
-        //    food -= 1;
-        //    timer_spend_food = 0.0f;
-        //}
-
-        //if (timer_add_food>=(60/food_add_in_minute))
-        //{
-        //    food += 1 ;
-        //    timer_add_food = 0.0f;
-        //}
+    
 
         //WOOD
 
         timer_add_wood += Time.deltaTime;
-        timer_spend_wood += Time.deltaTime;
+
         wood_benefits = (wm.current_woodcutters * 0.78f - wm.current_buildings * 0.1749f) * 60;
 
         if (timer_add_wood >= 1.0f)
@@ -85,39 +60,24 @@ public class Resources_Manager : MonoBehaviour
             wood += (wm.current_woodcutters * 0.78f - wm.current_buildings * 0.1749f);
             timer_add_wood = 0.0f;
         }
-        //spend_wood_in_minute = 3 * wm.current_buildings;
-        //wood_add_in_minute = wm.current_woodcutters * 2 * 4;
-
-
-        //if (timer_spend_wood >= (60 / spend_wood_in_minute))
-        //{
-        //    wood -= 1;
-        //    timer_spend_wood = 0.0f;
-        //}
-
-        //if (timer_add_wood >= (60 / wood_add_in_minute))
-        //{
-        //    wood += 1;
-        //    timer_add_wood = 0.0f;
-        //}
-
+      
+        //GOLD
 
         timer_add_gold += Time.deltaTime;
-        timer_spend_gold += Time.deltaTime;
+      
         gold_benefits = (wm.current_minners * 0.38f) * 60;
-
 
         if (timer_add_gold >= 1.0f)
         {
             gold += (wm.current_minners * 0.38f);
             timer_add_gold = 0.0f;
         }
+
         //HAPINESS
-        if (food_add_in_minute - spend_food_in_minute >= 5)
-            hapiness = 2;
-        else if (food_add_in_minute - spend_food_in_minute > 5 && food_add_in_minute - spend_food_in_minute <= 0)
+
+        if (food >= 300)
             hapiness = 1;
-        else if (food_add_in_minute - spend_food_in_minute < 0)
+        else if (food < 0)
             hapiness = 0;
 
     }

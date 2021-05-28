@@ -31,11 +31,14 @@ public class Enemy_melee : MonoBehaviour
             ShotEnemy();
         }
 
-        
+
         if (HP <= 0)
+        {
             m_Animator.SetBool("isDying", true);
-           
-    }
+            agent.Stop();
+        }
+
+        }
 
     private void GoToEnemy()
     {
@@ -97,5 +100,10 @@ public class Enemy_melee : MonoBehaviour
             Debug.DrawLine(this.transform.position, closestVillager.transform.position);
             this.transform.LookAt(closestVillager.transform.position);
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(this);
     }
 }
