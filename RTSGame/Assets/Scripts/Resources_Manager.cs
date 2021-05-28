@@ -27,6 +27,9 @@ public class Resources_Manager : MonoBehaviour
     public float gold_benefits = 0.0f;
     private float timer_add_gold = 0.0f;
 
+
+    public int villagers;
+    public int max_villagers;
     Workers_Manager wm;
     void Start()
     {
@@ -36,6 +39,10 @@ public class Resources_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        villagers = GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().villagers;
+        max_villagers = GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().villagers_capacity;
+
         //FOOD
         timer_add_food += Time.deltaTime;
        

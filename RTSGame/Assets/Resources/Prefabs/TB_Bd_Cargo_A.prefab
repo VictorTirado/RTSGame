@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4245115789302076894}
   - component: {fileID: 1671549166809374214}
   - component: {fileID: 5891493133481458200}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: TB_Bd_Cargo_A
   m_TagString: Building
   m_Icon: {fileID: 0}

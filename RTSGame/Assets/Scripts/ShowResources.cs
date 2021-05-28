@@ -11,6 +11,8 @@ public class ShowResources : MonoBehaviour
     private TextMeshPro foodmesh;
     private TextMeshPro goldmesh;
     private TextMeshPro n_villager;
+    private TextMeshPro number_villager;
+    private TextMeshPro max_villagers;
     private TextMeshPro happiness;
     Resources_Manager rm;
     // Start is called before the first frame update
@@ -24,6 +26,8 @@ public class ShowResources : MonoBehaviour
         goldmeshbenefits = gameObject.GetComponent<TextMeshPro>();
         n_villager = gameObject.GetComponent<TextMeshPro>();
         happiness = gameObject.GetComponent<TextMeshPro>();
+        number_villager = gameObject.GetComponent<TextMeshPro>();
+        max_villagers = gameObject.GetComponent<TextMeshPro>();
         rm = GameObject.Find("Resources_manager").GetComponent<Resources_Manager>();
     }
 
@@ -51,6 +55,10 @@ public class ShowResources : MonoBehaviour
 
         if (this.name == "Happines_text")
             happiness.text = rm.hapiness.ToString("0");
+        if (this.name == "Number_villagers")
+            number_villager.text = rm.villagers.ToString("0");
+        if (this.name == "Max_villagers")
+            max_villagers.text = rm.max_villagers.ToString("0");
 
     }
 }
