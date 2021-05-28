@@ -182,5 +182,9 @@ public class Minner : MonoBehaviour
         myCollider = mine.transform.GetComponent<SphereCollider>();
         SetWorkPlace = true;
     }
- 
+    public void DestroyPerson()
+    {
+        Destroy(gameObject);
+    }
+
 }

@@ -111,7 +111,7 @@ public class enemy : MonoBehaviour
         fake_fireball.GetComponent<Projectil_2>().enemy = enemy_selected;
     }
 
-    public void Destroy()
+    public void DestroyPerson()
     {
         Destroy(gameObject);
     }

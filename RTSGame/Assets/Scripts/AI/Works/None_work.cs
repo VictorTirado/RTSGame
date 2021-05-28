@@ -158,6 +158,11 @@ public class None_work : MonoBehaviour
       
     }
 
+    public void DestroyPerson()
+    {
+        Destroy(gameObject);
+    }
+
 
 }
 

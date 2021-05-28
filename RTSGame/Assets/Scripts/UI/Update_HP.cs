@@ -21,7 +21,7 @@ public class Update_HP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.parent.transform.parent.tag == "People")
+        if (this.transform.parent.transform.parent.tag == "People" || this.transform.parent.transform.parent.tag == "Commander")
             UpdteVillagersHP();
         else if (this.transform.parent.transform.parent.tag == "Enemy")
             UpdateEnemiesHP();

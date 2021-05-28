@@ -164,6 +164,11 @@ public class Farmer : MonoBehaviour
        
         SetWorkPlace = true;
     }
+
+    public void DestroyPerson()
+    {
+        Destroy(gameObject);
+    }
 }
 
 

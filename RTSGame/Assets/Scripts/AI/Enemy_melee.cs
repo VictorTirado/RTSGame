@@ -102,8 +102,8 @@ public class Enemy_melee : MonoBehaviour
         }
     }
 
-    public void Destroy()
+    public void DestroyPerson()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
