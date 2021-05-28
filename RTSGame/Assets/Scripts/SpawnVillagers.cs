@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnVillagers : MonoBehaviour
 {
 
-    float timer = 0.0f;
+    public float timer = 0.0f;
 
     public GameObject villager = null;
     public GameObject spawn_point = null;

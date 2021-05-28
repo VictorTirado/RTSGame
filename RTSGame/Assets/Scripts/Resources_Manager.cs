@@ -15,6 +15,7 @@ public class Resources_Manager : MonoBehaviour
     //FOOD
  
     public float food = 0;
+    public float food_benefits = 20;
     public float timer_spend_food = 0.0f;
     public float timer_add_food = 0.0f;
     public float spend_food_in_minute = 0.0f;
@@ -22,6 +23,7 @@ public class Resources_Manager : MonoBehaviour
 
     //WOOD
     public float wood = 115;
+    public float wood_benefits = 20;
     public float timer_spend_wood = 0.0f;
     public float timer_add_wood = 0.0f;
     public float spend_wood_in_minute = 0.0f;
@@ -29,6 +31,7 @@ public class Resources_Manager : MonoBehaviour
 
     //GOLD
     public float gold = 0;
+    public float gold_benefits = 20;
     public float timer_spend_gold = 0.0f;
     public float timer_add_gold = 0.0f;
 
@@ -47,9 +50,9 @@ public class Resources_Manager : MonoBehaviour
         //FOOD
         timer_add_food += Time.deltaTime;
         timer_spend_food += Time.deltaTime;
+        food_benefits = (wm.current_none_workers * 0.3194f + wm.current_farmers * 0.53f - wm.villagers * 0.1749f)*60;
 
-
-        if(timer_add_food>=1.0f)
+        if (timer_add_food>=1.0f)
         {
             food += (wm.current_none_workers * 0.3194f + wm.current_farmers * 0.53f - wm.villagers * 0.1749f);
             timer_add_food = 0.0f;
@@ -75,6 +78,7 @@ public class Resources_Manager : MonoBehaviour
 
         timer_add_wood += Time.deltaTime;
         timer_spend_wood += Time.deltaTime;
+        wood_benefits = (wm.current_woodcutters * 0.78f - wm.current_buildings * 0.1749f) * 60;
 
         if (timer_add_wood >= 1.0f)
         {
@@ -100,6 +104,8 @@ public class Resources_Manager : MonoBehaviour
 
         timer_add_gold += Time.deltaTime;
         timer_spend_gold += Time.deltaTime;
+        gold_benefits = (wm.current_minners * 0.38f) * 60;
+
 
         if (timer_add_gold >= 1.0f)
         {
