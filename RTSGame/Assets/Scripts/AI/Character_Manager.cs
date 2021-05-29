@@ -257,7 +257,7 @@ public class Character_Manager : MonoBehaviour
 
         if (new_work == "Soldier")
         {
-            
+           
             this.GetComponent<Warrior>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Soldier;
             if (gender == Gender.Female)
@@ -273,6 +273,7 @@ public class Character_Manager : MonoBehaviour
                 this.transform.GetChild(2).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_01_A");
                 this.transform.GetChild(2).gameObject.SetActive(true);
                 this.transform.GetChild(15).gameObject.SetActive(true);
+                this.GetComponent<Warrior>().sword.SetActive(true);
 
             }
             else if (gender == Gender.Male)
@@ -287,6 +288,7 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Warrior") as RuntimeAnimatorController;
                 this.transform.GetChild(6).gameObject.SetActive(true);
                 this.transform.GetChild(15).gameObject.SetActive(true);
+                this.GetComponent<Warrior>().sword.SetActive(true);
                 this.transform.GetChild(6).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_01_A");
 
             }

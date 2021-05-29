@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LowPolyDungeonsLite_Demo.unity
     guid: 8fdb66b3d5f94c2488dec767fb72a89e
   - enabled: 1

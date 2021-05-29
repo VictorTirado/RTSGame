@@ -25,21 +25,6 @@ public class SpawnVillagers : MonoBehaviour
         var vill_fake_3 = Instantiate(villager, spawn_point.transform);
         vill_fake_3.transform.position = spawn_point.transform.position;
         vill_fake_3.transform.parent = GameObject.Find("Villagers").transform;
-        var vill_fake_4 = Instantiate(villager, spawn_point.transform);
-        vill_fake_4.transform.position = spawn_point.transform.position;
-        vill_fake_4.transform.parent = GameObject.Find("Villagers").transform;
-        var vill_fake_5 = Instantiate(villager, spawn_point.transform);
-        vill_fake_5.transform.position = spawn_point.transform.position;
-        vill_fake_5.transform.parent = GameObject.Find("Villagers").transform;
-        var vill_fake_6 = Instantiate(villager, spawn_point.transform);
-        vill_fake_6.transform.position = spawn_point.transform.position;
-        vill_fake_6.transform.parent = GameObject.Find("Villagers").transform;
-        var vill_fake_7 = Instantiate(villager, spawn_point.transform);
-        vill_fake_7.transform.position = spawn_point.transform.position;
-        vill_fake_7.transform.parent = GameObject.Find("Villagers").transform;
-        var vill_fake_8 = Instantiate(villager, spawn_point.transform);
-        vill_fake_8.transform.position = spawn_point.transform.position;
-        vill_fake_8.transform.parent = GameObject.Find("Villagers").transform;
 
     }
 
