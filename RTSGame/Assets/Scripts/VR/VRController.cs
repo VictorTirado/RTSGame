@@ -111,7 +111,7 @@ public class VRController : MonoBehaviour
             //fVector3 pos = new Vector3(this.transform.position.x, 0.0f,this.transform.position.z);
             this.transform.position = commander.transform.position;
            
-            commander.gameObject.SetActive(false);
+            commander.transform.GetChild(7).gameObject.SetActive(false);
             GameObject.Find("Controller (right)").GetComponent<LaserPointer>().PlayerIsInAir = false;
         }
       
@@ -124,8 +124,8 @@ public class VRController : MonoBehaviour
             Vector3 pos = new Vector3(this.transform.position.x, 20.0f, this.transform.position.z);
             commander.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
             this.transform.position = pos;
-        commander.gameObject.SetActive(true);
-            GameObject.Find("Controller (right)").GetComponent<LaserPointer>().PlayerIsInAir = true;
+        commander.transform.GetChild(7).gameObject.SetActive(true);
+        GameObject.Find("Controller (right)").GetComponent<LaserPointer>().PlayerIsInAir = true;
         PlayerIsInFloor = false;
       
 

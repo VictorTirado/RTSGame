@@ -13,7 +13,7 @@ public class Win_Lose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Sazed").GetComponent<Character_Manager>().HP <= 0 || GameObject.Find("Vin").GetComponent<Character_Manager>().HP <= 0)
+        if (GameObject.FindGameObjectWithTag("Commander").GetComponent<Character_Manager>().HP<0)
             Time.timeScale = 0;
     }
 

@@ -23,8 +23,14 @@ public class asd : MonoBehaviour
  
     void Update()
     {
-       
-        if(ChangeView())
+        if (peasant == true)
+        {
+            if (GameObject.FindGameObjectWithTag("Commander").gameObject != null)
+                GameObject.FindGameObjectWithTag("Commander").gameObject.transform.position = this.transform.position;
+
+
+        }
+        if (ChangeView())
         {
            
             Change();
@@ -70,6 +76,7 @@ public class asd : MonoBehaviour
             GameObject.Find("Controller (left)").GetComponent<ControllerGrabObject>().enabled = true;
             GameObject.Find("Controller (right)").GetComponent<ControllerGrabObject>().enabled = true;
             this.gameObject.GetComponent<VRController>().PlayerInFloor();
+           
             swords.SetActive(true);
             //GameObject.Find("Canvas").SetActive(false);
             peasant = true;
