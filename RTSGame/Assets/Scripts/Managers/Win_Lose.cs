@@ -13,13 +13,13 @@ public class Win_Lose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Sazed").GetComponent<Character_Manager>().HP <= 0)
+        if (GameObject.Find("Sazed").GetComponent<Character_Manager>().HP <= 0 || GameObject.Find("Vin").GetComponent<Character_Manager>().HP <= 0)
             Time.timeScale = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HIIIIIIIIIIIII");
+       
         if (other.tag == "Commander" || other.tag == "People")
             Time.timeScale = 0;
         

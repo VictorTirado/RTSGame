@@ -62,6 +62,7 @@ public class Warrior : MonoBehaviour
         //agent.Resume();
         cm.m_Animator.SetBool("isHitting", false);
         cm.m_Animator.SetBool("isWalking", true);
+        agent.Resume();
         agent.SetDestination(dest);
 
         float distance = Vector3.Distance(this.transform.position, dest);
@@ -113,11 +114,11 @@ public class Warrior : MonoBehaviour
 
         }
         float distanceToClosestEnemy = 600.0f;
-        enemy closestEnemy = null;
-        enemy[] allEnemies = GameObject.FindObjectsOfType<enemy>();
+        GameObject closestEnemy = null;
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-        foreach(enemy currentEnemy in allEnemies)
+        foreach(GameObject currentEnemy in allEnemies)
         {
             float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
            
@@ -137,6 +138,7 @@ public class Warrior : MonoBehaviour
 
     private void HitEnemy()
     {
+       
         if (enemy != null && in_pos == true)
         {
             cm.m_Animator.SetBool("isHitting", true);
@@ -150,7 +152,16 @@ public class Warrior : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
 
+    public void Damage()
+    {
+        if(enemy.GetComponent<enemy>()!=null)
+            enemy.GetComponent<enemy>().HP -= 10;
+        if (enemy.GetComponent<Enemy_melee>() != null)
+            enemy.GetComponent<Enemy_melee>().HP -= 10;
+
+    }
 
 }
 

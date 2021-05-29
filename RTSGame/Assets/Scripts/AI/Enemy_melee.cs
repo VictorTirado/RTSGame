@@ -106,4 +106,9 @@ public class Enemy_melee : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void Damage()
+    {
+        enemy_selected.GetComponent<Character_Manager>().HP -= 5;
+    }
 }

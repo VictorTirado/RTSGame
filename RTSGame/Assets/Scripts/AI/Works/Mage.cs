@@ -40,7 +40,7 @@ public class Mage : MonoBehaviour
                     if (cm.has_to_move == true)
                         GoToPos(GameObject.Find("Controller (right)").GetComponent<Move_Workers>().hitPoint);
                     //GoToPos();
-                    if (enemy != null)
+                 
                         ShotEnemy();
                  
                 }
@@ -76,15 +76,17 @@ public class Mage : MonoBehaviour
 
     void FindClosestEnemy()
     {
+        if(enemy == null)
+            cm.m_Animator.SetBool("isShooting", false);
         if (cm.m_Animator.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
         {
             Debug.Log("ENTRANDO");
             float distanceToClosestEnemy = 1000.0f;
-            enemy closestEnemy = null;
-            enemy[] allEnemies = GameObject.FindObjectsOfType<enemy>();
+            GameObject closestEnemy = null;
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-            foreach (enemy currentEnemy in allEnemies)
+            foreach (GameObject currentEnemy in allEnemies)
             {
                 float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
                 Debug.Log(distanceToEnemy);

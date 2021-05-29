@@ -209,7 +209,7 @@ public class Build : MonoBehaviour
             return true;
 
         }
-        if (collidingObject.name == "TB_Bd_Cargo_A" && rm.wood - 30 > 0.0f)
+        if (collidingObject.name == "House" && rm.wood - 30 > 0.0f)
         {
          
             return true;
@@ -261,7 +261,7 @@ public class Build : MonoBehaviour
          
 
         }
-        if (build.name == "TB_Bd_Cargo_A(Clone)")
+        if (build.name == "House (Clone)")
         {
             rm.wood -= 30f;
           

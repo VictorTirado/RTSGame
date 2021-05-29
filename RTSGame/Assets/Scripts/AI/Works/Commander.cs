@@ -13,6 +13,7 @@ public class Commander : MonoBehaviour
     void Start()
     {
         cm = this.transform.GetComponent<Character_Manager>();
+        m_Animator = this.GetComponent<Animator>();
         save_life = cm.HP;
     }
 

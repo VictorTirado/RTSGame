@@ -77,8 +77,8 @@ public class Character_Manager : MonoBehaviour
     public void UpdateWork(string new_work)
     {
         ResetVillager();
-      
 
+      
 
 
         Debug.Log(new_work);
@@ -90,23 +90,26 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/None_work") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_04_A");
                 this.transform.GetChild(3).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
+
 
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/None_work") as RuntimeAnimatorController;
                 this.transform.GetChild(8).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
         }
@@ -118,7 +121,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -126,19 +129,21 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Wood") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_02_A");
                 this.transform.GetChild(3).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Wood") as RuntimeAnimatorController;
                 this.transform.GetChild(8).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
                 this.transform.GetChild(8).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_03_A");
             }
         }
@@ -150,7 +155,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -158,19 +163,21 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_03_A");
                 this.transform.GetChild(3).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Minner") as RuntimeAnimatorController;
                 this.transform.GetChild(8).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
                 this.transform.GetChild(8).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_04_A");
 
             }
@@ -183,7 +190,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -191,19 +198,21 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Farmer") as RuntimeAnimatorController;
                 this.transform.GetChild(3).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_04_A");
                 this.transform.GetChild(3).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Farmer") as RuntimeAnimatorController;
                 this.transform.GetChild(8).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
                 this.transform.GetChild(8).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_02_A");
 
             }
@@ -217,7 +226,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -226,13 +235,14 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
                 this.transform.GetChild(5).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_03_A");
                 this.transform.GetChild(5).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -240,6 +250,7 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<None_work>().enabled = false;
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Mage") as RuntimeAnimatorController;
                 this.transform.GetChild(11).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
 
             }
         }
@@ -253,7 +264,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name !="Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -261,19 +272,21 @@ public class Character_Manager : MonoBehaviour
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Warrior") as RuntimeAnimatorController;
                 this.transform.GetChild(2).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_01_A");
                 this.transform.GetChild(2).gameObject.SetActive(true);
-               
+                this.transform.GetChild(15).gameObject.SetActive(true);
+
             }
             else if (gender == Gender.Male)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root")
+                    if (child.name != "Root" || child.name != "Canvas")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/Warrior") as RuntimeAnimatorController;
                 this.transform.GetChild(6).gameObject.SetActive(true);
+                this.transform.GetChild(15).gameObject.SetActive(true);
                 this.transform.GetChild(6).GetComponent<Renderer>().material = (Material)Resources.Load("Materials/Villagers/Polygon_Fantasy_Characters_Mat_01_A");
 
             }
