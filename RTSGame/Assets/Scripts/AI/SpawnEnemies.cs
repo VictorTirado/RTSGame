@@ -27,14 +27,14 @@ public class SpawnEnemies : MonoBehaviour
                 round++;
                 timer = 0.0f;
             }
-            if(round == 1)
+            if(round == 1 && timer == 0)
             {
                 Instantiate(melee, transform.parent);
                 Instantiate(melee, transform.parent);
                 round++;
                 timer = 0.0f;
             }
-            if (round == 2)
+            if (round == 2 && timer == 0)
             {
                 Instantiate(melee, transform.parent);
                 Instantiate(melee, transform.parent);
