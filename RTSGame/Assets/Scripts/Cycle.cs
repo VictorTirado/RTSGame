@@ -64,14 +64,17 @@ public class Cycle : MonoBehaviour
             {
                 foreach (Transform child2 in child)
                 {
-                    if (actual_season == seasons.Winter)
-                        child2.GetComponent<Renderer>().material = winter;
-                    else if (actual_season == seasons.Spring)
-                        child2.GetComponent<Renderer>().material = summer;
-                    else if (actual_season == seasons.Summer)
-                        child2.GetComponent<Renderer>().material = summer;
-                    else if (actual_season == seasons.Autum)
-                        child2.GetComponent<Renderer>().material = autumm;
+                    if (child2.GetComponent<Renderer>() != null)
+                    {
+                        if (actual_season == seasons.Winter)
+                            child2.GetComponent<Renderer>().material = winter;
+                        else if (actual_season == seasons.Spring)
+                            child2.GetComponent<Renderer>().material = summer;
+                        else if (actual_season == seasons.Summer)
+                            child2.GetComponent<Renderer>().material = summer;
+                        else if (actual_season == seasons.Autum)
+                            child2.GetComponent<Renderer>().material = autumm;
+                    }
                 }
                 
             }
@@ -79,14 +82,17 @@ public class Cycle : MonoBehaviour
             {
                 foreach (Transform child2 in child)
                 {
-                    if(actual_season == seasons.Winter)
-                        child2.GetComponent<Renderer>().material = winter;
-                    else if(actual_season == seasons.Spring)
-                        child2.GetComponent<Renderer>().material = summer;
-                    else if(actual_season == seasons.Summer)
-                        child2.GetComponent<Renderer>().material = summer;
-                    else if(actual_season == seasons.Autum)
-                        child2.GetComponent<Renderer>().material = autumm;
+                    if (child2.GetComponent<Renderer>() != null)
+                    {
+                        if (actual_season == seasons.Winter)
+                            child2.GetComponent<Renderer>().material = winter;
+                        else if (actual_season == seasons.Spring)
+                            child2.GetComponent<Renderer>().material = summer;
+                        else if (actual_season == seasons.Summer)
+                            child2.GetComponent<Renderer>().material = summer;
+                        else if (actual_season == seasons.Autum)
+                            child2.GetComponent<Renderer>().material = autumm;
+                    }
 
 
                 }
