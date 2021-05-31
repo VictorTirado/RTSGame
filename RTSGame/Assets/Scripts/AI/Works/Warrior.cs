@@ -148,10 +148,13 @@ public class Warrior : MonoBehaviour
             cm.m_Animator.SetBool("isHitting", false);
     }
 
-    public void DestroyPerson()
-    {
-        Destroy(gameObject);
-    }
+    //public void DestroyPerson()
+    //{
+
+       
+      
+    //    Destroy(gameObject);
+    //}
     
 
     public void Damage()

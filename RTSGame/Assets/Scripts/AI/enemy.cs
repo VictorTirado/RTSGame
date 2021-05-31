@@ -16,6 +16,9 @@ public class enemy : MonoBehaviour
     public GameObject fireball;
 
     public bool in_pos = false;
+
+    public float distanceToClosestEnemy = 30000.0f;
+
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
@@ -40,7 +43,7 @@ public class enemy : MonoBehaviour
             m_Animator.SetBool("isDying", true);
             agent.Stop();
         }
-
+     
         }
 
     private void GoToEnemy()
@@ -81,7 +84,7 @@ public class enemy : MonoBehaviour
 
 
         }
-        float distanceToClosestEnemy = 30000.0f;
+      
         Character_Manager closestVillager = null;
         Character_Manager[] allvillagers = GameObject.FindObjectsOfType<Character_Manager>();
 
@@ -114,5 +117,10 @@ public class enemy : MonoBehaviour
     public void DestroyPerson()
     {
         Destroy(gameObject);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceToClosestEnemy);
     }
 }

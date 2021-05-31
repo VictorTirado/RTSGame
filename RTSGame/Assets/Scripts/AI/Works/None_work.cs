@@ -160,7 +160,25 @@ public class None_work : MonoBehaviour
 
     public void DestroyPerson()
     {
-        Destroy(gameObject);
+       
+            if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.WoodCutter)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_woodcutters -= 1;
+            else if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Minner)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_minners -= 1;
+            else if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Soldier)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_soldiers -= 1;
+            else if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_mages -= 1;
+            else if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.None)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_none_workers -= 1;
+            else if (this.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Farmer)
+                GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_farmers -= 1;
+
+
+        // GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().UpdateWorkers();
+        // GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_none_workers -= 1;
+         Destroy(gameObject);
+
     }
 
 

@@ -52,7 +52,7 @@ public class Farmer : MonoBehaviour
     {
         if (InPosition == false && HasResources == false && LeaveResources == false && SetPosition == false)
         {
-           
+
             agent.SetDestination(vegetable.transform.position);
             cm.m_Animator.SetBool("isWalking", true);
             SetPosition = true;
@@ -67,8 +67,8 @@ public class Farmer : MonoBehaviour
         if (distance < 2.0f)
             InPosition = true;
 
-       
-        }
+
+    }
 
     private void FindResources()
     {
@@ -85,30 +85,30 @@ public class Farmer : MonoBehaviour
         if (HasResources == true)
         {
             cm.m_Animator.SetBool("isFinding", false);
-           
-           
+
+
             cm.m_Animator.SetBool("isWalking", true);
             agent.SetDestination(door.transform.position);
-            
+
             if ((transform.position - door.transform.position).sqrMagnitude < 2f)
                 LeaveResources = true;
         }
     }
     private void SetResources()
     {
-       
+
         if (LeaveResources == true)
         {
             for (int i = 0; i < this.transform.childCount; i++)
             {
                 this.transform.GetChild(i).gameObject.SetActive(false);
-              
-              
+
+
             }
             if (this.transform.GetChild(8).gameObject.activeSelf == false || this.transform.GetChild(3).gameObject.activeSelf == false)
             {
                 timer += Time.deltaTime;
-                
+
             }
             if (timer >= 5.0f)
             {
@@ -127,13 +127,13 @@ public class Farmer : MonoBehaviour
                 }
 
 
-                    LeaveResources = false;
+                LeaveResources = false;
                 timer = 0.0f;
 
                 this.gameObject.transform.LookAt(dest);
                 cm.m_Animator.SetBool("IsFinding", false);
                 cm.m_Animator.SetBool("IsWalking", true);
-               
+
             }
 
             InPosition = false;
@@ -161,14 +161,16 @@ public class Farmer : MonoBehaviour
             else if (hitCollider.tag == "Vetegable")
                 vegetable = hitCollider.gameObject;
         }
-       
+
         SetWorkPlace = true;
     }
 
-    public void DestroyPerson()
-    {
-        Destroy(gameObject);
-    }
+    //    public void DestroyPerson()
+    //    {
+
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
 
 

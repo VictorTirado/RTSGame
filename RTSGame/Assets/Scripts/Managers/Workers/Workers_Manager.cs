@@ -43,16 +43,17 @@ public class Workers_Manager : MonoBehaviour
         timer_houses += Time.deltaTime;
         villagers = current_mages + current_minners + current_none_workers + current_soldiers + current_woodcutters + current_farmers + 1;
 
-        if (timer_houses >= 1.0f)
-        {
-            Houses();
-            timer_houses = 0.0f;
-        }
+        //if (timer_houses >= 1.0f)
+        //{
+        //    Houses();
+        //    timer_houses = 0.0f;
+        //}
 
        
 
         if (first_update== false)
         {
+     
             CurrentBuildings();
             UpdateWorkers();
             first_update = true;
@@ -104,12 +105,13 @@ public class Workers_Manager : MonoBehaviour
 
     public void Houses()
     {
-        foreach (Transform eachChild in GameObject.Find("Buildings").transform)
-        {
-            if (eachChild.gameObject.layer == 18)
-                houses += 1;
-        }
+        //foreach (Transform eachChild in GameObject.Find("Buildings").transform)
+        //{
+        //    if (eachChild.gameObject.layer == 18)
+        //        houses += 1;
+        //}
 
-        villagers_capacity = 6 + houses * 2;
+        villagers_capacity += 2;
+        //villagers_capacity = 6 + houses * 2;
     }
 }

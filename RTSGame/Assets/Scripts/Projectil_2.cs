@@ -22,7 +22,7 @@ public class Projectil_2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "People")
+        if (other.tag == "People" ||other.tag=="Commander")
         {
             enemy = other.gameObject;
             Hit();

@@ -14,6 +14,8 @@ public class Enemy_melee : MonoBehaviour
     public Animator m_Animator;
 
     public bool in_pos = false;
+
+    public float distanceToClosestEnemy = 30000.0f;
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
@@ -37,8 +39,10 @@ public class Enemy_melee : MonoBehaviour
             m_Animator.SetBool("isDying", true);
             agent.Stop();
         }
+      
+      
 
-        }
+    }
 
     private void GoToEnemy()
     {
@@ -79,7 +83,7 @@ public class Enemy_melee : MonoBehaviour
 
 
         }
-        float distanceToClosestEnemy = 30000.0f;
+      
         Character_Manager closestVillager = null;
         Character_Manager[] allvillagers = GameObject.FindObjectsOfType<Character_Manager>();
 
@@ -110,5 +114,10 @@ public class Enemy_melee : MonoBehaviour
     public void Damage()
     {
         enemy_selected.GetComponent<Character_Manager>().HP -= 5;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceToClosestEnemy);
     }
 }

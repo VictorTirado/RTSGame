@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Character_Manager : MonoBehaviour
 {
-    public enum Character { None, Soldier, WoodCutter, Minner, Mage, Farmer };
+    public enum Character { None, Soldier, WoodCutter, Minner, Mage, Farmer,Dying };
     public enum Gender { Male, Female, None };
     public Character work_type = Character.None;
     public Gender gender = Gender.None;
@@ -90,7 +90,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/None_work") as RuntimeAnimatorController;
@@ -104,7 +104,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root" )
                         child.gameObject.SetActive(false);
                 }
                 this.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/None_work") as RuntimeAnimatorController;
@@ -121,7 +121,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -136,7 +136,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -155,7 +155,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root" )
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -170,7 +170,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root" )
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -190,7 +190,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -205,7 +205,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -226,7 +226,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -242,7 +242,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root" )
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -264,7 +264,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name !="Canvas")
+                    if (child.name != "Root")
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -280,7 +280,7 @@ public class Character_Manager : MonoBehaviour
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name != "Root" || child.name != "Canvas")
+                    if (child.name != "Root" )
                         child.gameObject.SetActive(false);
                     else if (child.name == "Root")
                         child.gameObject.SetActive(true);
@@ -335,6 +335,7 @@ public class Character_Manager : MonoBehaviour
     {
         if (HP <= 0)
         {
+           
             alive = false;
             m_Animator.SetBool("IsDying", true);
             agent.Stop();

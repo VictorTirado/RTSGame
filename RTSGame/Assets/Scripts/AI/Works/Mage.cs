@@ -125,10 +125,11 @@ public class Mage : MonoBehaviour
     }
 
 
-    public void DestroyPerson()
-    {
-        Destroy(gameObject);
-    }
+    //public void DestroyPerson()
+    //{
+      
+    //    Destroy(gameObject);
+    //}
 }
 
 

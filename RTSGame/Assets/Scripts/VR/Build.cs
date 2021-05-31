@@ -264,7 +264,7 @@ public class Build : MonoBehaviour
         if (build.name == "House (Clone)")
         {
             rm.wood -= 30f;
-          
+            //GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().Houses();
 
         }
         if (build.name == "TB_Bd_Church(Clone)" )

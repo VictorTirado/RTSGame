@@ -181,9 +181,10 @@ public class Woodcutter : MonoBehaviour
         SetWorkPlace = true;
     }
 
-    public void DestroyPerson()
-    {
-        Destroy(gameObject);
-    }
+    //public void DestroyPerson()
+    //{
+       
+    //    Destroy(gameObject);
+    //}
 
 }
