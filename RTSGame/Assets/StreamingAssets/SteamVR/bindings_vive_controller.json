@@ -119,19 +119,10 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/teleport"
-                  },
-                  "position" : {
-                     "output" : "/actions/default/in/touchpadposition"
-                  }
-               },
-               "mode" : "trackpad",
-               "path" : "/user/hand/right/input/trackpad"
-            },
-            {
-               "inputs" : {
-                  "click" : {
                      "output" : "/actions/default/in/grab"
+                  },
+                  "long" : {
+                     "output" : "/actions/default/in/build"
                   }
                },
                "mode" : "button",
@@ -149,6 +140,36 @@
             {
                "inputs" : {
                   "click" : {
+                     "output" : "/actions/default/in/build"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/grip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/preview"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/grip"
+            },
+            {
+               "inputs" : {
+                  "south" : {
+                     "output" : "/actions/default/in/preview"
+                  }
+               },
+               "mode" : "dpad",
+               "parameters" : {
+                  "sub_mode" : "click"
+               },
+               "path" : "/user/hand/left/input/trackpad"
+            },
+            {
+               "inputs" : {
+                  "click" : {
                      "output" : "/actions/default/in/changeview"
                   }
                },
@@ -162,25 +183,7 @@
                   }
                },
                "mode" : "button",
-               "path" : "/user/hand/left/input/grip"
-            },
-            {
-               "inputs" : {
-                  "click" : {
-                     "output" : "/actions/default/in/build"
-                  }
-               },
-               "mode" : "button",
                "path" : "/user/hand/right/input/grip"
-            },
-            {
-               "inputs" : {
-                  "click" : {
-                     "output" : "/actions/default/in/preview"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/left/input/grip"
             },
             {
                "inputs" : {
@@ -193,15 +196,15 @@
             },
             {
                "inputs" : {
-                  "south" : {
-                     "output" : "/actions/default/in/preview"
+                  "click" : {
+                     "output" : "/actions/default/in/teleport"
+                  },
+                  "position" : {
+                     "output" : "/actions/default/in/touchpadposition"
                   }
                },
-               "mode" : "dpad",
-               "parameters" : {
-                  "sub_mode" : "click"
-               },
-               "path" : "/user/hand/left/input/trackpad"
+               "mode" : "trackpad",
+               "path" : "/user/hand/right/input/trackpad"
             },
             {
                "inputs" : {
@@ -219,6 +222,9 @@
                "inputs" : {
                   "click" : {
                      "output" : "/actions/default/in/grab"
+                  },
+                  "long" : {
+                     "output" : "/actions/default/in/noworkers"
                   }
                },
                "mode" : "button",

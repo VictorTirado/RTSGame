@@ -4037,6 +4037,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6377207513012538297, guid: 514031c5ff98f2f468ee171ecdbb0a2f,
+        type: 3}
+      propertyPath: HP
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6377207513012538298, guid: 514031c5ff98f2f468ee171ecdbb0a2f,
         type: 3}
       propertyPath: door

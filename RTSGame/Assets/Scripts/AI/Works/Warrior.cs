@@ -138,14 +138,18 @@ public class Warrior : MonoBehaviour
 
     private void HitEnemy()
     {
-       
+
         if (enemy != null && in_pos == true)
         {
+            cm.m_Animator.speed = 0.9f;
             cm.m_Animator.SetBool("isHitting", true);
 
         }
         else
+        {
+            cm.m_Animator.speed = 1.0f;
             cm.m_Animator.SetBool("isHitting", false);
+        }
     }
 
     //public void DestroyPerson()
@@ -160,9 +164,9 @@ public class Warrior : MonoBehaviour
     public void Damage()
     {
         if(enemy.GetComponent<enemy>()!=null)
-            enemy.GetComponent<enemy>().HP -= 10;
+            enemy.GetComponent<enemy>().HP -= 6;
         if (enemy.GetComponent<Enemy_melee>() != null)
-            enemy.GetComponent<Enemy_melee>().HP -= 10;
+            enemy.GetComponent<Enemy_melee>().HP -= 6;
 
     }
 

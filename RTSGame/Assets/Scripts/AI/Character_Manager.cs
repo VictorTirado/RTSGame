@@ -10,7 +10,7 @@ public class Character_Manager : MonoBehaviour
     public Character work_type = Character.None;
     public Gender gender = Gender.None;
 
-    public int HP = 100;
+    public int HP = 25;
     public bool alive = true;
 
     public NavMeshAgent agent;
@@ -84,6 +84,7 @@ public class Character_Manager : MonoBehaviour
         Debug.Log(new_work);
         if (new_work == "None")
         {
+            this.HP = 25;
             this.GetComponent<None_work>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.None;
             if (gender == Gender.Female)
@@ -115,6 +116,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Woodcutter")
         {
+            this.HP = 25;
             this.GetComponent<Woodcutter>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.WoodCutter;
             if (gender == Gender.Female)
@@ -149,6 +151,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Minner")
         {
+            this.HP = 25;
             this.GetComponent<Minner>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Minner;
             if (gender == Gender.Female)
@@ -184,6 +187,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Farmer")
         {
+            this.HP = 25;
             this.GetComponent<Farmer>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Farmer;
             if (gender == Gender.Female)
@@ -219,6 +223,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Mage")
         {
+            this.HP = 30;
             // IMPORTANTE LINEA 247
             this.GetComponent<Character_Manager>().work_type = Character.Mage;
             this.GetComponent<Mage>().enabled = true;
@@ -257,7 +262,7 @@ public class Character_Manager : MonoBehaviour
 
         if (new_work == "Soldier")
         {
-           
+            this.HP = 40;
             this.GetComponent<Warrior>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Soldier;
             if (gender == Gender.Female)
@@ -298,6 +303,7 @@ public class Character_Manager : MonoBehaviour
 
     public void ResetVillager()
     {
+        
         if (this.GetComponent<Character_Manager>().work_type == Character.Soldier)
         {
             this.GetComponent<Warrior>().sword.SetActive(false);

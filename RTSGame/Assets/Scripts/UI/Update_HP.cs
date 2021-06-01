@@ -8,11 +8,11 @@ public class Update_HP : MonoBehaviour
     // Start is called before the first frame update
     Image im;
 
-    float HP_Villager = 100.0f;
-    float HP_Soldier = 120.0f;
-    float HP_Mage = 70.0f;
-    float HP_Enemy = 100.0f;
-    float HP_Enemy_melee = 100.0f;
+    float HP_Villager = 25.0f;
+    float HP_Soldier = 40.0f;
+    float HP_Mage = 30.0f;
+    float HP_Enemy = 35.0f;
+    float HP_Enemy_melee = 25.0f;
     void Start()
     {
         im = this.GetComponent<Image>();
@@ -42,8 +42,8 @@ public class Update_HP : MonoBehaviour
     public void UpdateEnemiesHP()
     {
         if (this.transform.parent.transform.parent.GetComponent<enemy>() !=null)
-            im.fillAmount = this.transform.parent.parent.GetComponent<enemy>().HP / HP_Enemy_melee;
+            im.fillAmount = this.transform.parent.parent.GetComponent<enemy>().HP / HP_Enemy;
         else if(this.transform.parent.transform.parent.GetComponent<Enemy_melee>() != null)
-            im.fillAmount = this.transform.parent.parent.GetComponent<Enemy_melee>().HP / HP_Enemy;
+            im.fillAmount = this.transform.parent.parent.GetComponent<Enemy_melee>().HP / HP_Enemy_melee;
     }
 }

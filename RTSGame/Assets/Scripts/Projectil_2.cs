@@ -34,7 +34,7 @@ public class Projectil_2 : MonoBehaviour
 
     public void Hit()
     {
-        int dmg = Random.Range(55, 65);
+        int dmg = 8;
 
         enemy.GetComponent<Character_Manager>().HP -= dmg;
         //if (enemy.GetComponent<Character_Manager>().work_type == Character_Manager.Character.Mage)

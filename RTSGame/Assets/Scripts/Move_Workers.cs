@@ -10,6 +10,8 @@ public class Move_Workers : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean MoveWorkers;
+    public SteamVR_Action_Boolean NoWorkers;
+
 
     public GameObject camera_eyes = null;
     public LayerMask teleportMask;
@@ -34,7 +36,16 @@ public class Move_Workers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       if(NoWorkers.GetStateDown(handType)==true)
+        {
+            Debug.Log("HIIIIIIIIIIIII");
+           for(int i=0;i< this.GetComponent<GetPeople2>().people_selected.Count; i++)
+            {
+                this.GetComponent<GetPeople2>().people_selected[i].transform.GetChild(14).gameObject.SetActive(false);
+                this.GetComponent<GetPeople2>().people_selected.RemoveAt(i);
+               
+            }
+        }
         if (villagers_selected.Count > 0)
         {
             RaycastHit hit;

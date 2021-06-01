@@ -40,6 +40,7 @@ public class asd : MonoBehaviour
     }
     public bool ChangeView()
     {
+      
         return ChangeViewAction.GetStateDown(handType);
     }
 

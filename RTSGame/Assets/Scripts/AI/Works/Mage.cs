@@ -111,11 +111,12 @@ public class Mage : MonoBehaviour
         if (enemy != null)
         {
             cm.m_Animator.SetBool("isShooting", true);
-            
+            cm.m_Animator.speed = 1.0f;
 
         }
         else
             cm.m_Animator.SetBool("isShooting", false);
+
     }
 
     public void Cast()

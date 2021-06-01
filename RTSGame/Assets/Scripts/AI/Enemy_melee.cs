@@ -67,10 +67,14 @@ public class Enemy_melee : MonoBehaviour
         if (enemy_selected != null && in_pos == true)
         {
             m_Animator.SetBool("isShooting", true);
+            m_Animator.speed = 1.11f;
 
         }
         else
+        {
             m_Animator.SetBool("isShooting", false);
+            m_Animator.speed = 1.0f;
+        }
     }
 
     void FindClosestEnemy()

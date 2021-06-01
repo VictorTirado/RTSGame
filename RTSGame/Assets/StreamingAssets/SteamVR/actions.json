@@ -67,6 +67,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/NoWorkers",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

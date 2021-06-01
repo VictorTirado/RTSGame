@@ -32,7 +32,7 @@ public class Projectil : MonoBehaviour
     }
     public void Hit()
     {
-        int dmg = Random.Range(55, 65);
+        int dmg = 10;
         if (enemy.GetComponent<enemy>() != null)
             enemy.GetComponent<enemy>().HP -= dmg;
       
