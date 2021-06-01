@@ -116,6 +116,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Woodcutter")
         {
+            GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_woodcutters += 1;
             this.HP = 25;
             this.GetComponent<Woodcutter>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.WoodCutter;
@@ -151,6 +152,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Minner")
         {
+            GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_minners += 1;
             this.HP = 25;
             this.GetComponent<Minner>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Minner;
@@ -187,6 +189,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Farmer")
         {
+            GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_farmers += 1;
             this.HP = 25;
             this.GetComponent<Farmer>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Farmer;
@@ -223,6 +226,7 @@ public class Character_Manager : MonoBehaviour
         }
         if (new_work == "Mage")
         {
+            GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_mages += 1;
             this.HP = 30;
             // IMPORTANTE LINEA 247
             this.GetComponent<Character_Manager>().work_type = Character.Mage;
@@ -262,6 +266,7 @@ public class Character_Manager : MonoBehaviour
 
         if (new_work == "Soldier")
         {
+            GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().current_soldiers += 1;
             this.HP = 40;
             this.GetComponent<Warrior>().enabled = true;
             this.GetComponent<Character_Manager>().work_type = Character.Soldier;

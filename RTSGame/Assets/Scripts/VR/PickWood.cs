@@ -18,8 +18,8 @@ public class PickWood : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         
-            Debug.Log("HIIIIIIIIIIIIIIIIII");
-            GameObject.Find("Resources_manager").GetComponent<Resources_Manager>().wood += 2;
+          
+            GameObject.Find("Resources_manager").GetComponent<Resources_Manager>().wood += 5;
             Destroy(this.gameObject);
     
     }

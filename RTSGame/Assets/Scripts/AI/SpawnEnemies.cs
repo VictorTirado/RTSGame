@@ -19,7 +19,7 @@ public class SpawnEnemies : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 50)
+        if (timer >= 70)
         {
             if (round == 0)
             {

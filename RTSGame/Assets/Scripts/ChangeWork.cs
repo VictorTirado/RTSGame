@@ -19,32 +19,45 @@ public class ChangeWork : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        //if (this.gameObject.name == "None")
-        //    parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+        Debug.Log(other.name);
+        if (this.gameObject.name == "None")
+            parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
 
-        //else if (this.gameObject.name =="Minner")
-        //{
-        //    if(wm.current_minners < wm.minners_capacity)
-        //        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
-        //}
-        //else if (this.gameObject.name == "Woodcutter")
-        //{
-        //    if (wm.current_woodcutters < wm.woodcutters_capacity)
-        //        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
-        //}
-        //else if (this.gameObject.name == "Soldier")
-        //{
-        //    if (wm.current_soldiers < wm.soldiers_capacity)
-        //        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
-        //}
-        //else if (this.gameObject.name == "Mage")
-        //{
-        //    if (wm.current_mages < wm.mages_capacity)
-        //        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
-        //}
-        parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+        else if (this.gameObject.name == "Minner")
+        {
+            if (wm.current_minners < wm.minners_capacity)
+                parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+        }
+        else if (this.gameObject.name == "Woodcutter")
+        {
+            Debug.Log("WOOOOOD");
+            if (wm.current_woodcutters < wm.woodcutters_capacity)
+                parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+        }
+        else if (this.gameObject.name == "Soldier")
+        {
+            if (wm.current_soldiers < wm.soldiers_capacity)
+                parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+        }
+        else if (this.gameObject.name == "Mage")
+        {
+            if (wm.current_mages < wm.mages_capacity)
+            {
+              
+                parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+            }
+        }
+        else if (this.gameObject.name == "Farmer")
+        {
+            if (wm.current_farmers < wm.farmers_capacity)
+            {
+               
+                parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
+            }
+        }
+        //parent.GetComponent<Character_Manager>().UpdateWork(this.gameObject.name);
         GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().ResetWorkers();
         GameObject.Find("Workers_Manager").GetComponent<Workers_Manager>().UpdateWorkers();
 

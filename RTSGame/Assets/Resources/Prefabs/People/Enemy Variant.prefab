@@ -286,12 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1004322dcc84d2841a9a8b3cf8c0d3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 30
   enemy_selected: {fileID: 0}
   m_Animator: {fileID: 664456987241629624}
   fireball: {fileID: 6131795507018835068, guid: da0fe127efccae94ebafcea6fd3b2dde,
     type: 3}
   in_pos: 0
+  distanceToClosestEnemy: 30000
 --- !u!1001 &8247907603688583822
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcd6feb71f00ac47add29e6dc76add7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 25
   enemy_selected: {fileID: 0}
   m_Animator: {fileID: 4523445810758224131}
   in_pos: 0

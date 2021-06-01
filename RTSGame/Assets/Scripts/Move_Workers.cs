@@ -23,6 +23,8 @@ public class Move_Workers : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    bool reset_list = false;
+
    public List<GameObject> villagers_selected;
     // Start is called before the first frame update
     void Start()
@@ -38,13 +40,19 @@ public class Move_Workers : MonoBehaviour
     {
        if(NoWorkers.GetStateDown(handType)==true)
         {
-            Debug.Log("HIIIIIIIIIIIII");
-           for(int i=0;i< this.GetComponent<GetPeople2>().people_selected.Count; i++)
+
+            reset_list = true;
+        }
+       if(reset_list == true)
+        {
+            for (int i = 0; i < this.GetComponent<GetPeople2>().people_selected.Count; i++)
             {
                 this.GetComponent<GetPeople2>().people_selected[i].transform.GetChild(14).gameObject.SetActive(false);
                 this.GetComponent<GetPeople2>().people_selected.RemoveAt(i);
-               
+
             }
+            if (this.GetComponent<GetPeople2>().people_selected.Count == 0)
+                reset_list = false;
         }
         if (villagers_selected.Count > 0)
         {
@@ -98,5 +106,15 @@ public class Move_Workers : MonoBehaviour
         laserTransform.position = Vector3.Lerp(controllerPose.transform.position, hitPoint, .5f);
         laserTransform.LookAt(hitPoint);
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, hit.distance);
+    }
+
+    public void ResetList()
+    {
+        for (int i = 0; i < this.GetComponent<GetPeople2>().people_selected.Count; i++)
+        {
+            this.GetComponent<GetPeople2>().people_selected[i].transform.GetChild(14).gameObject.SetActive(false);
+            this.GetComponent<GetPeople2>().people_selected.RemoveAt(i);
+
+        }
     }
 }
