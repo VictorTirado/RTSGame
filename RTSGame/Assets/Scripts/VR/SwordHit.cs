@@ -21,9 +21,9 @@ public class SwordHit : MonoBehaviour
         if (other.tag == "Enemy")
         {
             if(other.GetComponent<enemy>()!=null)
-                other.GetComponent<enemy>().HP -= 20;
+                other.GetComponent<enemy>().HP -= 15;
             else if(other.GetComponent<Enemy_melee>()!=null)
-                other.GetComponent<Enemy_melee>().HP -= 20;
+                other.GetComponent<Enemy_melee>().HP -= 15;
         }
     }
 }

@@ -7,8 +7,8 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     public GameObject melee;
     public GameObject range;
-    float timer;
-    int round = 0;
+    public float timer;
+    public int round = 0;
     void Start()
     {
         
@@ -24,24 +24,26 @@ public class SpawnEnemies : MonoBehaviour
             if (round == 0)
             {
                 Instantiate(melee, transform.parent);
-                round++;
-                timer = 0.0f;
+              
+               
             }
-            if(round == 1 && timer == 0)
+            if(round == 1)
             {
                 Instantiate(melee, transform.parent);
                 Instantiate(melee, transform.parent);
-                round++;
-                timer = 0.0f;
+                //round++;
+                //timer = 0.0f;
             }
-            if (round == 2 && timer == 0)
+            if (round == 2)
             {
                 Instantiate(melee, transform.parent);
                 Instantiate(melee, transform.parent);
                 Instantiate(range, transform.parent);
-                round++;
-                timer = 0.0f;
+                //round++;
+                //timer = 0.0f;
             }
+            round++;
+            timer = 0.0f;
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Character_Manager : MonoBehaviour
 {
-    public enum Character { None, Soldier, WoodCutter, Minner, Mage, Farmer,Dying };
+    public enum Character { None, Soldier, WoodCutter, Minner, Mage, Farmer,Dying,Commader };
     public enum Gender { Male, Female, None };
     public Character work_type = Character.None;
     public Gender gender = Gender.None;

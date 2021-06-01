@@ -17,6 +17,8 @@ public class enemy : MonoBehaviour
 
     public bool in_pos = false;
 
+    bool alive = true;
+
     public float distanceToClosestEnemy = 30000.0f;
 
     void Start()
@@ -27,22 +29,24 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (enemy_selected == null)
-            FindClosestEnemy();
-
-        else if(enemy_selected != null)
+        if (CheckLife() == true)
         {
-            GoToEnemy();
-            ShotEnemy();
+            if (enemy_selected == null)
+                FindClosestEnemy();
+
+            else if (enemy_selected != null)
+            {
+                GoToEnemy();
+                ShotEnemy();
+            }
         }
 
 
-        if (HP <= 0)
-        {
-            m_Animator.SetBool("isDying", true);
-            agent.Stop();
-        }
+        //if (HP <= 0)
+        //{
+        //    m_Animator.SetBool("isDying", true);
+        //    agent.Stop();
+        //}
      
         }
 
@@ -125,5 +129,19 @@ public class enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanceToClosestEnemy);
+    }
+
+    public bool CheckLife()
+    {
+        if (HP <= 0)
+        {
+            alive = false;
+            m_Animator.SetBool("isDying", true);
+            agent.Stop();
+
+            return alive;
+        }
+
+        return alive;
     }
 }

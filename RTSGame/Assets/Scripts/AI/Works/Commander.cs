@@ -36,7 +36,8 @@ public class Commander : MonoBehaviour
 
     public void RecoverLife()
     {
-        
-        cm.HP += 2;
+        if(cm.HP<100)
+            cm.HP += 2;
+
     }
 }

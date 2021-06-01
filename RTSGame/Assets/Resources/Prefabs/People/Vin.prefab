@@ -3571,6 +3571,7 @@ GameObject:
   - component: {fileID: 1878474821}
   - component: {fileID: 1878474819}
   - component: {fileID: 1878474820}
+  - component: {fileID: 1647726753}
   m_Layer: 0
   m_Name: Vin
   m_TagString: Commander
@@ -3666,7 +3667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b042bae8f8b82e498ba80959039a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  work_type: 0
+  work_type: 7
   gender: 2
   HP: 100
   alive: 1
@@ -3689,6 +3690,28 @@ MonoBehaviour:
   cm: {fileID: 0}
   m_Animator: {fileID: 0}
   timer_1: 0
+--- !u!195 &1647726753
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164680606104928925}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &164680606104929323
 GameObject:
   m_ObjectHideFlags: 0
